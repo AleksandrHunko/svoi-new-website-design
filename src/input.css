@@ -1,0 +1,457 @@
+@import url('./fonts.css');
+@import url('./photoswipe.css');
+@import url('./leaflet.css');
+
+@import "filepond/dist/filepond.min.css";
+
+.filepond--item {
+    margin-bottom: 16px;
+}
+.filepond-document {
+ margin-top: 32px;
+}
+.filepond-document label {
+    margin-bottom: 16px;;
+}
+.filepond-document .filepond--item {
+    height: 48px;
+    margin-bottom: 16px;
+}
+
+
+@import "tailwindcss";
+
+@theme {
+    --font-sans: "e-ukraine", "sans-serif";
+}
+
+@layer base {
+    html {
+      font-family: var(--font-sans);
+      font-weight: 400;
+      scroll-behavior: smooth;
+    }
+
+    #menuToggle > span:first-child { 
+        transform-origin: 0% 0%; 
+    } 
+    #menuToggle > span:nth-last-child(2) { 
+        transform-origin: 0% 100%; 
+    } 
+    #menuToggle > input:checked ~ span { 
+        opacity: 1; 
+        transform: rotate(45deg) translate(-8.5px, -8.5px); 
+    } 
+    #menuToggle > input:checked ~ span:nth-last-child(3) { 
+        transform: rotate(-45deg) translate(-8.5px, 8.5px)
+    } 
+    #menuToggle > input:checked ~ span:nth-last-child(2) { 
+        opacity: 0; 
+    }
+    .zoom-90 {
+        zoom: 0.9;
+    }
+    .zoom-100 {
+        zoom: 1;
+    }
+    .zoom-110 {
+        zoom: 1.1;
+    }
+    .zoom-125 {
+        zoom: 1.25;
+    }
+    .zoom-150 {
+        zoom: 1.50;
+    }
+}
+
+@layer theme {
+    .color-style-1 { 
+        --theme-bg-20: #CCE5FF; 
+        --theme-bg-80: #3397FF;
+        --theme-text: #000000;
+    }
+    .color-style-2 { 
+        --theme-bg-20: #fff7db; 
+        --theme-bg-80: #ffdb4d;
+        --theme-text: #000000;
+        --theme-text-80: #000000;
+    }
+    .color-style-3 { 
+        --theme-bg-20: #FFF0B7; 
+        --theme-bg-80: #A7C4E9;
+        --theme-text: #000000;
+    }
+    .color-style-4 { 
+        --theme-bg-20: #BDBDFF; 
+        --theme-bg-80: #5B5AFF;
+        --theme-text: #000000;
+    }
+    .color-style-5 { 
+        --theme-bg-20: #DEDEFF; 
+        --theme-bg-80: #7B7BFF;
+        --theme-text: #000000;
+    }
+    .color-style-6 { 
+        --theme-bg-20: linear-gradient(90deg, #D7F64D 0%, #007EFF 100%);
+        --theme-bg-80: #FFDB4D;
+        --theme-text: #000000;
+        --theme-text-80: #000000;
+    }
+    .color-style-7 { 
+        --theme-bg-20: #C3DBDB; 
+        --theme-bg-80: #BB6685;
+        --theme-text: #000000;
+    }
+    .color-style-8 { 
+        --theme-bg-20: #A0E25B; 
+        --theme-bg-80: #E7F7D6;
+        --theme-text: #000000;
+        --theme-text-80: #000000;
+    }
+    .color-style-9 { 
+        --theme-bg-20: #36D17D; 
+        --theme-bg-80: #CCF3DE;
+        --theme-text: #000000;
+        --theme-text-80: #000000;
+    }
+    .color-style-10 { 
+        --theme-bg-20: #CDD6DD; 
+        --theme-bg-80: #E7EEF3;
+        --theme-text: #000000;
+        --theme-text-80: #000000;
+    }
+    .color-style-11 { 
+        --theme-bg-20: #E7EEF3; 
+        --theme-bg-80: #CDD6DD;
+        --theme-text: #000000;
+    }
+    .color-style-12 { 
+        --theme-bg-20: #FFAF99; 
+        --theme-bg-80: linear-gradient(90deg, #FF3800 0%, #FFDB4D 100%);
+        --theme-bg-svg: #FF3800;
+        --theme-text: #000000;
+    }
+    .color-style-13 { 
+        --theme-bg-20: #F2C3DB; 
+        --theme-bg-80: #BB55A4;
+        --theme-text: #000000;
+    }
+    .color-style-14 { 
+        --theme-bg-20: linear-gradient(90deg, #007EFF 0%, #AA2B8E 100%); 
+        --theme-bg-80: #BB55A4;
+        --theme-text: #fff;
+    }
+    .color-style-15 { 
+        --theme-bg-20: #E7EEF3; 
+        --theme-bg-80: #6EAE93;
+        --theme-text: #000000;
+    }
+
+    .color-style-contrast {
+        --theme-bg-20: #eee;
+        --theme-bg-80: #959595;
+        --theme-bg-svg: #959595;
+        --theme-text: #000000;
+    }
+
+    .color-style-contrast img {
+        @apply filter grayscale;
+    }
+
+    .underscore-links a {
+        text-decoration: underline !important;
+    }
+}
+
+@layer utilities {
+
+    .styled-input {
+        @apply relative h-[60px] mb-8 overflow-hidden
+    }
+    .styled-textarea {
+        @apply relative mb-8 overflow-hidden
+    } 
+    .styled-input input {
+        @apply text-base font-light w-full h-full pt-5 pr-[25px] border-none outline-none bg-transparent
+    } 
+    .styled-textarea textarea {
+        @apply text-base w-full min-h-[60px] pt-5 border-none outline-none
+    }
+    .styled-input input:focus + label .input-span, .styled-input input.valid + label .input-span,  
+    .styled-input input.always-up + label .input-span {
+        transform: translateY(-170%);
+        font-size: 12px;
+    } 
+    .styled-textarea textarea:focus ~ .textarea-span, .styled-textarea textarea:valid ~ .textarea-span {
+        top: 0;
+        font-size: 12px;
+    }
+    .styled-input input:focus + label::after, .styled-input input.valid + label::after,
+    .styled-textarea textarea:focus + label::after, .styled-textarea textarea:valid + label::after {
+        transform: translateX(0%)
+    } 
+    .styled-textarea label, 
+    .styled-input label {
+        @apply absolute bottom-0 left-0 w-full h-full text-black pointer-events-none border-b-2 border-black
+    } 
+    .styled-input label span,
+    .styled-textarea .textarea-span {
+        font-size: 16px;
+    }
+    .styled-input label::after,
+    .styled-textarea label::after {
+        @apply absolute bottom-[-2px] left-0 w-full h-full pointer-events-none;
+        content: "";
+        border-style: solid;
+        border-image-slice: 2;
+        border-width: 0 0 3px 0;
+        border-color: var(--theme-bg-svg, var(--theme-bg-80));
+        transform: translateX(-100%);
+        transition: all 0.3s ease;
+    }
+    .styled-input .invalid + label::after {
+        transform: translateX(0%);
+        border-bottom: 2px solid #FF3A44;
+    }
+    .styled-input .invalid + label .input-span {
+        transform: translateY(-170%);
+        font-size: 12px;
+        color: #FF3A44;
+    } 
+    .styled-input .invalid {
+        color: #FF3A44;
+    }
+
+    .textarea-span {
+        @apply absolute top-[25px] left-0 w-full h-full text-black pointer-events-none;
+        transition: all 0.3s ease;
+      }
+
+    .input-span {
+        @apply absolute bottom-[5px] left-0;
+        transition: all 0.3s ease;
+    }
+
+    .styled-input img {
+        @apply absolute right-0 top-8 h-5
+    }
+
+    .bg-colored {
+      background: var(--theme-bg-20);
+      color: var(--theme-text);
+    }
+
+    .bg-colored-80 {
+        background: var(--theme-bg-80);
+        color: var(--theme-text); 
+    }
+
+    .bg-remove {
+        background: transparent;
+    }
+
+    .hover\:bg-colored:hover {
+        background: var(--theme-bg-80);
+        color: var(--theme-text);
+        transition: all 0.3s ease-in-out; 
+    }
+
+    .bg-colored svg .stroke,
+    .hover\:bg-colored:hover svg .stroke {
+        stroke: var(--theme-text);
+    }
+    .bg-colored svg .fill,
+    .hover\:bg-colored:hover svg .fill {
+        fill: var(--theme-text);
+    }
+
+    .bg-colored-80 svg .fill {
+        fill: var(--theme-text-80, white);
+    }
+    .bg-colored-80 svg .stroke {
+        stroke: var(--theme-text-80, white);
+    }
+
+    .hover\:text-colored:hover {
+        @apply hover:text-(--theme-bg-svg,var(--theme-bg-80)) transition-colors
+    }
+
+    .hover-underline-slide {
+        @apply relative inline-block pb-1 text-(--theme-text) 
+        after:content-[''] after:absolute after:left-0 after:bottom-[-2px] 
+        after:h-[2px] after:w-0 after:bg-(--theme-text) 
+        after:transition-all after:duration-300 
+        hover:after:w-full;
+    }
+    svg:hover .stroke,
+    .hover\:bg-colored:hover .stroke,
+    .button-transparent:hover .stroke  {
+        stroke: var(--theme-bg-svg, var(--theme-bg-80));
+    }
+    svg:hover .fill,
+    .hover\:bg-colored:hover .fill,
+    .button-transparent:hover .fill {
+        fill: var(--theme-bg-svg, var(--theme-bg-80));
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .triangle-icon-context-menu input:checked + label svg {
+        transform: rotate(180deg);
+    }
+
+    .floating-menu-items {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.75rem;
+        pointer-events: none;
+    }
+
+    .floating-menu-item {
+        opacity: 0;
+        transform: translateY(12px) scale(0.95);
+        transition: opacity 0.14s ease, transform 0.14s ease, filter 0.15s ease;
+    }
+
+    .floating-menu-items.open {
+        display: flex;
+        pointer-events: auto;
+    }
+
+    .floating-menu-items.open .floating-menu-item {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    .floating-menu-item:hover {
+        filter: brightness(0.88);
+    }
+
+    .floating-menu-items.open .floating-menu-item:nth-child(4) { transition-delay: 0.03s; }
+    .floating-menu-items.open .floating-menu-item:nth-child(3) { transition-delay: 0.07s; }
+    .floating-menu-items.open .floating-menu-item:nth-child(2) { transition-delay: 0.11s; }
+    .floating-menu-items.open .floating-menu-item:nth-child(1) { transition-delay: 0.15s; }
+
+    .floating-menu-toggle-btn {
+        transition: transform 0.2s ease, filter 0.15s ease;
+    }
+
+    .floating-menu-toggle-btn:hover {
+        filter: brightness(0.88);
+    }
+
+    .floating-menu-toggle-btn.open {
+        transform: rotate(90deg);
+    }
+
+
+}
+
+@layer components {
+    .section-wrapper {
+        @apply w-full px-4 md:px-8 py-8 mx-auto xl:py-16 max-w-[1440px];
+    }
+
+    .text-biggest {
+        @apply text-[26px]/[34px] lg:text-[38px]/[46px] xl:text-[56px]/[64px]
+    }
+
+    .text-bigger {
+        @apply text-[22px]/[26px] lg:text-[26px]/[28px] xl:text-[38px]/[40px]
+    }
+
+    .text-big {
+        @apply text-[18px]/[24px] lg:text-[28px]/[32px]
+    }
+
+    .text-medium {
+        @apply text-[16px]/[24px] lg:text-[24px]/[28px]    
+    }
+
+    .text-custom-20px {
+        @apply text-[20px]/[24px]
+    }
+
+    .text-custom-18px {
+        @apply text-[16px]/[22px] lg:text-[18px]/[24px]
+    }
+
+    .text-regular {
+        @apply text-[16px]/[18px] md:text-[16px]/[24px]
+    }
+
+    .text-small {
+        @apply text-[14px]/[16px] font-light
+    }
+
+    .button-transparent {
+        @apply hover:bg-(--theme-bg-svg,var(--theme-bg-80))
+        hover:border-(--theme-bg-svg,var(--theme-bg-80)) hover:text-(--theme-text) transition-colors 
+        text-[14px]/[18px] md:text-[18px]/[28px] font-light border-2 rounded-4xl px-6 py-3 box-content
+    }
+
+    .button-black {
+        @apply hover:bg-(--theme-bg-80) hover:text-(--theme-text) transition-colors 
+        text-[13px]/[18px] md:text-[16px]/[28px] bg-black text-white font-light rounded-4xl px-5 py-3
+    }
+
+    /* applied to user-generated content */
+    .user-generated p {
+        @apply my-4 md:my-6 text-[16px]/[24px] font-light
+    }
+
+    .user-generated h1 {
+        @apply my-2 md:my-4 text-[26px]/[28px] lg:text-[38px]/[40px] xl:text-[56px]/[60px]
+    }
+    .user-generated h2 {
+        @apply my-2 md:my-4 text-[18px]/[24px] lg:text-[28px]/[32px]
+    }
+    .user-generated h3 {
+        @apply my-2 md:my-4 text-[16px]/[24px] lg:text-[24px]/[28px]
+    }
+    .user-generated h4 {
+        @apply my-2 md:my-4 text-[16px]/[24px] lg:text-[20px]/[24px]
+    }
+    .user-generated h5 {
+        @apply my-2 md:my-4 text-[16px]/[24px] lg:text-[18px]/[22px] font-light
+    }
+      
+    .user-generated a {
+        @apply border-b-2 font-light hover:text-(--theme-bg-svg,var(--theme-bg-80)) transition-colors
+    }
+
+    .user-generated td, .user-generated th {
+        @apply p-2
+    }
+
+    .user-generated ul {
+        @apply list-disc pl-6 my-4 space-y-1;
+    }
+      
+    .user-generated ul ul {
+        @apply list-disc mt-2;
+    }
+
+    .user-generated ol {
+        @apply list-decimal pl-6 my-4;
+    }
+      
+    .user-generated li {
+        @apply mb-2 text-[16px]/[24px] font-light;
+    } 
+
+    .user-generated blockquote {
+        @apply border-l-4 pl-2 ml-2 font-normal;
+        border-color: var(--theme-bg-svg, var(--theme-bg-80));
+    }
+
+    /* user-generated end */
+}
