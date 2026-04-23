@@ -1,0 +1,44 @@
+{# Expects variable: informers (array of informer objects) #}
+<div class="w-full flex justify-start flex-wrap gap-x-3 gap-y-4 my-8">
+    {% for informer in informers %}
+
+        {% if informer.visible is not defined or informer.visible %}
+
+            {# NUMBER #}
+            {% if informer.type == 'number' and informer.value %}
+                <div
+                    class="hover:bg-colored cursor-pointer flex flex-col justify-between items-start h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    >
+                    <h4 class="text-[26px]/[26px] md:text-[38px]/[38px] lg:text-[56px]/[56px]">
+                        {{ informer.value }}
+                    </h4>
+                    <p class="text-sm md:text-base">
+                        {{ informer.label }}
+                    </p>
+                </div>
+            {% endif %}
+
+            {# LINK #}
+            {% if informer.type == 'link' %}
+                <a
+                    href="{{ informer.url }}"
+                    class="hover:bg-colored cursor-pointer flex flex-col justify-between items-center h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    >
+                    {% if informer.icon %}
+                        <span class="material-icons py-3" style="font-size: 40px;">
+                            {{ informer.icon }}
+                        </span>
+                    {% endif %}
+
+                    <p class="text-sm md:text-base text-center">
+                        {{ informer.label }}
+                    </p>
+                </a>
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %}
+</div>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

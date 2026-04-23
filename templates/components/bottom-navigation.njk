@@ -1,0 +1,89 @@
+{# Expects variables from data: community, cnap, navBottomLinks #}
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-4 border-b-2">
+    <div class="flex flex-col mb-6">
+        <h3 class="text-regular mb-8">ГРОМАДА</h3>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Секретар Запорізької міської ради</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Депутатський корпус</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Сесії міської ради</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Вакансії</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Очищення влади</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Запобігання корупції</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Відеотрансляції</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Виконком</a>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h3 class="text-regular mb-8">
+            ГРОМАДЯНАМ
+        </h3>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h3 class="text-regular mb-8">
+            ДОКУМЕНТИ ТА ДАНІ
+        </h3>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Контакти та звернення</a>
+    </div>
+    <div class="flex flex-col mb-6">
+        <h3 class="text-regular mb-8">
+            ГРОМАДСЬКА УЧАСТЬ
+        </h3>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Електронні петиції</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Електронні консультації</a>
+        <a class="hover:text-colored text-small font-light mb-3" href="#">Громадська участь</a>
+        <h3 class="text-regular my-4">Слідкуй за нами тут:</h3>
+        <div class="flex gap-4 flex-wrap items-start mb-12">
+            {% set mediaLinks = community.communityExtra.media_links %}
+            {% set size = 36 %}
+            {% include "templates/components/media-links.njk" %}
+            <a
+                href="#"
+                aria-label="Підписатися на RSS-стрічку"
+                target="_blank"
+            >
+                <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 32 32"
+                    xmlns="http://www.w3.org/2000/svg"
+                    >
+                    <path class="fill" d="M 5 5 L 5 9 C 14.93 9 23 17.07 23 27 L 27 27 C 27 14.85 17.15 5 5 5 z M 5 12 L 5 16 C 11.07 16 16 20.93 16 27 L 20 27 C 20 18.72 13.28 12 5 12 z M 8 21 A 3 3 0 0 0 8 27 A 3 3 0 0 0 8 21 z"/>
+                </svg>
+            </a>
+        </div>
+        <h3 class="text-regular mb-4">НАША ГРОМАДА У СМАРТФОНІ:</h3>
+            <div class="flex gap-4">
+                <a href="#" target="_blank"
+                        class="hover:text-colored flex flex-col gap-2"
+                    >
+                    <img
+                        class="w-20 h-20"
+                        src="/img/qr-sample.png"
+                        alt="QR-код з посиланням на Viber-бот громади"
+                    />
+                    <p class="text-regular">Viber</p>
+                </a>
+                <a href="#" target="_blank" class="hover:text-colored flex flex-col gap-2">
+                    <img class="w-20 h-20" src="/img/qr-sample.png"
+                         alt="QR-код з посиланням на Telegram-бот громади"
+                    />
+                    <p class="text-regular">Telegram</p>
+                </a>
+            </div>
+    </div>
+</div>

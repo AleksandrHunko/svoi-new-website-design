@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/src/input.css" rel="stylesheet">
+    <link
+        rel="shortcut icon"
+        href="/img/favicon.png"
+        type="image/png"
+    />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+</head>
+
+<body class="w-full color-style-2">
+    <nav class="bg-colored">
+        <div class="flex justify-between items-center px-4 md:px-8 max-w-[1440px] mx-auto h-26 w-full">
+            <div class="nav-desktop-top overflow-hidden flex gap-5 h-16 justify-between items-center">
+                <a class="block h-full" href="/">
+                    <img class="h-full object-center object-contain mr-7" src="/img/logo.png" alt=""/>
+                </a>
+                <a class="hover-underline-slide shrink-0" href="/pages/index.html">Головна</a>
+                <a class="hover-underline-slide shrink-0" href="/pages/news-all.html">Новини</a>
+                <a class="hover-underline-slide shrink-0" href="#">Документи</a>
+                <a class="hover-underline-slide shrink-0" href="#">Послуги</a>
+                <a class="hover-underline-slide shrink-0" href="#">Муніципалітет</a>
+                <a class="hover-underline-slide shrink-0" href="#">Контакти</a>
+                <a class="hover-underline-slide shrink-0 cursor-pointer flex items-center gap-1 menuToggle">Ще<span class="inline-block text-xs ml-2 rotate-90">▶</span></a>
+            </div>
+            <div class="flex gap-4 h-16 justify-between items-center">
+                <svg
+                    id="search-button-open"
+                    class="h-9 w-9 cursor-pointer"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="48px"
+                    viewBox="0 -960 960 960"
+                    width="48px"
+                    >
+                    <path
+                        fill="#000"
+                        class="fill"
+                        d="M796-121 533-384q-30 26-69.96 40.5Q423.08-329 378-329q-108.16 0-183.08-75Q120-479 120-585t75-181q75-75 181.5-75t181 75Q632-691 632-584.85 632-542 618-502q-14 40-42 75l264 262-44 44ZM377-389q81.25 0 138.13-57.5Q572-504 572-585t-56.87-138.5Q458.25-781 377-781q-82.08 0-139.54 57.5Q180-666 180-585t57.46 138.5Q294.92-389 377-389Z"
+                    />
+                </svg>
+                <svg
+                    id="accessibility-button-open"
+                    class="h-9 w-9 cursor-pointer"
+                    version="1.1"
+                    viewBox="0 0 64.114716 64.114716"
+                    height="64.114716mm"
+                    width="64.114716mm"
+                    xmlns:svg="http://www.w3.org/2000/svg"
+                    >
+                    <path
+                        class="stroke"
+                        style="fill:none;stroke-width:2.64583"
+                        d="M 1.322915,16.876678 V 1.322915 h 15.553764"
+                        stroke="#000"
+                    />
+                    <path
+                        class="stroke" d="M 47.238033,1.322915 H 62.791797 V 16.876678"
+                        style="fill:none;stroke-width:2.64583"
+                        stroke="#000"
+                    />
+                    <path
+                        class="stroke"
+                        style="fill:none;stroke-width:2.64583"
+                        d="m 62.791797,47.238028 v 15.55377 H 47.238033"
+                        stroke="#000"
+                    />
+                    <path
+                        class="stroke"
+                        d="M 16.876685,62.791798 H 1.322915 v -15.55377"
+                        stroke="#000"
+                        style="fill:none;stroke-width:2.64583"
+                    />
+                    <path
+                        class="fill"
+                        fill="#000"
+                        d="m 32.057475,14.539168 c -12.12397,0 -23.237971,6.75578 -28.819947,17.51831 5.581976,10.76253 16.695977,17.51779 28.819947,17.51779 12.12403,10e-6 23.237479,-6.75532 28.819429,-17.51779 -5.58196,-10.76246 -16.695399,-17.51832 -28.819429,-17.51831 z m 0.001,5.74745 c 6.28509,0 11.345976,5.00087 11.656136,11.2112 a 1.4390351,1.4390351 0 0 1 0.113172,0.56069 1.4390351,1.4390351 0 0 1 -0.113172,0.55449 c -0.3073,6.21297 -5.369136,11.21481 -11.656136,11.21482 -6.48364,0 -11.771891,-5.28567 -11.771891,-11.76931 0,-6.48363 5.288251,-11.77189 11.771891,-11.77189 z m 0,2.87889 c -4.92821,0 -8.892997,3.9648 -8.892997,8.893 0,4.92821 3.964787,8.89041 8.892997,8.89041 4.9282,0 8.892481,-3.9622 8.892481,-8.89041 1e-5,-4.9282 -3.964281,-8.893 -8.892481,-8.893 z"
+                    />
+                </svg>
+                <div id="menuToggle" class="menuToggle relative md:hidden w-10 h-8 cursor-pointer">
+                    <input
+                        type="checkbox"
+                        aria-label="Toggle menu"
+                        class="absolute top-[-7px] left-[-5px] w-10 h-8 opacity-0 z-10 cursor-pointer"
+                    />
+                    <span class="block w-10 h-1 mb-2 mr-2 bg-(--theme-text) transition-all duration-300"></span>
+                    <span class="block w-10 h-1 mb-2 mr-2 bg-(--theme-text) transition-all duration-300"></span>
+                    <span class="block w-10 h-1 mr-2 bg-(--theme-text) transition-all duration-300"></span>
+                </div>
+                <div
+                    class="mobile-menu absolute left-0 top-24 w-full h-screen sm:h-[360px] lg:h-80 bg-colored border-b-2 border-(--theme-bg-80) opacity-0 pointer-events-none transition-opacity duration-300 z-10">
+                    <svg
+                        class="menu-close absolute hidden md:block top-4 right-4 cursor-pointer"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="48px"
+                        viewBox="0 -960 960 960"
+                        >
+                        <path
+                            class="fill"
+                            fill="#000"
+                            d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+                        />
+                    </svg>
+                    <div
+                        class="w-full h-full p-8 flex flex-col justify-start sm:flex-row sm:justify-center sm:flex-wrap gap-4">
+                        <div class="flex flex-col sm:w-[47%] lg:w-[20%]">
+                            <a class="hover-underline-slide mb-3" href="/pages/index.html">Головна</a>
+                            <a class="hover-underline-slide mb-3" href="/pages/news-all.html">Новини</a>
+                            <a class="hover-underline-slide mb-3" href="#">Документи</a>
+                            <a class="hover-underline-slide mb-3" href="#">Послуги</a>
+                        </div>
+                        <div class="flex flex-col sm:w-[47%] lg:w-[20%]">
+                            <a class="hover-underline-slide shrink-0" href="#">Муніципалітет</a>
+                            <a class="hover-underline-slide shrink-0" href="#">Контакти</a>
+                        </div>
+                        <div class="flex flex-col sm:w-[47%] lg:w-[20%]">
+                        </div>
+                        <div class="flex flex-col sm:w-[47%] lg:w-[20%] lg:justify-end">
+                            <a class="button-transparent text-center mb-2" href="tel:">
+                                Гаряча лінія
+                                <img
+                                    class="ml-2 -mt-1 inline-block w-5 h-5 pointer-events-none"
+                                    src="/img/material-design/telephone.svg"
+                                    alt=""
+                                />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <dialog id="accessibility-dialog" class="relative top-20 mx-auto pt-8 pb-12 pl-8 pr-16 shadow-2xl">
+        <svg
+            id="accessibility-button-close"
+            xmlns="http://www.w3.org/2000/svg"
+            height="48px"
+            viewBox="0 -960 960 960"
+            width="48px"
+            class="absolute top-2 right-2 cursor-pointer"
+            >
+            <path
+                class="fill"
+                fill="#000"
+                d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+            />
+        </svg>
+        <h4 class="text-2xl m-auto mb-12">
+            Налаштувати вигляд
+        </h4>
+        <p class="text-sm font-medium mb-4">
+            Розмір тексту
+        </p>
+        <div class="flex items-end gap-2 mb-8">
+            <button
+                class="scale-down cursor-pointer hover:bg-colored w-10 h-10 rounded-lg border text-big font-bold text-center"
+                >
+                −
+            </button>
+            <button
+                class="scale-up cursor-pointer hover:bg-colored w-10 h-10 rounded-lg border text-big font-bold text-center"
+                >
+                +
+            </button>
+            <p class="text-medium" id="scale-value"></p>
+        </div>
+        <p class="text-sm font-medium mb-4">
+            Колір
+        </p>
+        <div class="flex gap-3 mb-8">
+            <button
+                class="color-enable cursor-pointer flex-1 py-2 border rounded-lg flex items-center justify-center gap-2 hover:bg-colored text-regular">
+                <span class="w-4 h-4 rounded-full border border-gray-400 bg-[#FFF0B7]"></span>
+                Колір
+            </button>
+            <button
+                class="color-disable cursor-pointer flex-1 py-2 border rounded-lg flex items-center justify-center gap-2 hover:bg-colored text-regular">
+                <span class="w-4 h-4 rounded-full border border-gray-400 bg-black"></span>
+                Ч/Б
+            </button>
+        </div>
+        <button class="underscore-links cursor-pointer button-transparent flex gap-1">
+            <span>
+                Підкреслювати посилання
+            </span>
+            <span class="checkmark invisible">✔️</span>
+        </button>
+        </div>
+    </dialog>
+    <dialog id="search-dialog" class="absolute z-20 w-full md:w-9/12 h-60 top-24 mx-auto shadow-2xl">
+        <svg
+            id="search-button-close"
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            class="absolute top-4 right-4 cursor-pointer"
+            >
+            <path
+                class="fill"
+                fill="#000"
+                d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
+            />
+        </svg>
+        <form class="p-8" action="#" method="get">
+            <div class="styled-input mb-8">
+                <img class="w-5 h-5" src="/img/material-design/search.svg" alt="" />
+                <input
+                    id="main-search-form-text"
+                    name="text"
+                    type="text"
+                    autocomplete="off"
+                    required=""
+                >
+                <label class="input-label" for="main-search-form-text">
+                    <span class="input-span">
+                        Введіть ваш пошуковий запит
+                    </span>
+                </label>
+            </div>
+            <button class="button-black w-full">
+                Знайти
+            </button>
+        </form>
+    </dialog>
+
+    <div id="floating-context-menu" class="fixed bottom-7 right-7 z-[1010] flex flex-col items-end gap-3">
+        <div id="floating-menu-items" class="floating-menu-items">
+            <a href="tel:{{ cnap.firstPhone }}" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
+                <span class="text-regular whitespace-nowrap">Гаряча лінія</span>
+                <span class="w-10 h-10 rounded-full bg-colored-80 flex items-center justify-center shrink-0">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
+                        <path class="fill" d="M798-120q-125 0-247-54.5T329-329Q224-434 169.5-556T115-803q0-18 12-30.5t30-12.5h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-389l138 28q14 4 23 14.5t9 23.5v162q0 18-12.5 30T798-120Z"/>
+                    </svg>
+                </span>
+            </a>
+            <a href="#" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
+                <span class="text-regular whitespace-nowrap">Електронна черга</span>
+                <span class="w-10 h-10 rounded-full bg-colored-80 flex items-center justify-center shrink-0">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22">
+                        <path class="fill" d="M880-80 720-240H160q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v720ZM160-320h594l46 45v-525H160v480Zm0 0v-480 480Z"/>
+                    </svg>
+                </span>
+            </a>
+            <a href="#" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
+                <span class="text-regular whitespace-nowrap">Чатбот</span>
+                <span class="w-10 h-10 rounded-full bg-colored-80 flex items-center justify-center shrink-0">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
+                        <path class="fill" d="M3 3h7v7H3V3zm1 1v5h5V4H4zm1 1h3v3H5V5zm8-2h7v7h-7V3zm1 1v5h5V4h-5zm1 1h3v3h-3V5zM3 13h7v7H3v-7zm1 1v5h5v-5H4zm1 1h3v3H5v-3zm8 0h2v2h-2v-2zm3 0h2v2h-2v-2zm-3 3h2v2h-2v-2zm3 0h2v2h-2v-2z"/>
+                    </svg>
+                </span>
+            </a>
+            <a href="#" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
+                <span class="text-regular whitespace-nowrap">Укриття</span>
+                <span class="w-10 h-10 rounded-full bg-colored-80 flex items-center justify-center shrink-0">
+                    <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22">
+                        <path class="fill" d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        <button id="floating-menu-toggle" class="w-14 h-14 rounded-full bg-colored-80 flex items-center justify-center shadow-lg cursor-pointer shrink-0 floating-menu-toggle-btn">
+            <svg id="floating-icon-hamburger" class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path class="fill" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+            <svg id="floating-icon-close" class="hidden pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24" height="24">
+                <path class="fill" d="m249-207-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"/>
+            </svg>
+        </button>
+    </div>
+
+    {% block header %}{% endblock %}
+
+    <main>
+        {% block breadcrumbs %}{% endblock %}
+
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-colored">
+        <div class="section-wrapper">
+
+            {% include "templates/components/bottom-navigation.njk" %}
+
+            <div class="flex flex-col lg:flex-row py-8 gap-8 border-b-2">
+                <div class="flex flex-col lg:flex-row flex-[3] lg:items-center gap-4">
+                    <div class="flex flex-1 gap-6 items-center">
+                        <img
+                            class="w-20 h-auto"
+                            src="/img/logo.png"
+                            alt=""
+                        />
+                        <h3 class="text-medium font-light">
+                            Запорізька міська рада <br>Офіційний вебсайт
+                        </h3>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-small font-light mb-8">
+                            Створено в рамках швейцарсько-української програми
+                            «Електронне урядування задля підзвітності влади та участі громади» (EGAP), що реалізується
+                            Фондом Східна Європа у партнерстві з Міністерством цифрової трансформації України та
+                            фінансується Швейцарією.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex-1 flex flex-col">
+                    <div class="flex gap-4 mb-4">
+                        <img class="w-12 h-12" src="/img/cc.svg" alt="copyright"/>
+                        <p class="text-small font-light">
+                            Весь контент доступний за ліцензією Creative Commons
+                            Attribution 4.0 International license, якщо не зазначено інше.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 mb-4">
+                        <img class="w-12 h-12" src="/img/svoi.png" alt="svoi-logo"/>
+                        <a href="https://toolkit.in.ua" target="_blank" class="text-small font-light underline">
+                            Хочете такий сайт з чат-ботом для громади?
+                        </a>
+                        </div>
+                </div>
+            </div>
+            <div class="flex mt-4">
+                <p class="text-small font-light copyright-year">
+                    toolkit.in.ua 2025. Всі права захищені.
+                </p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+<script type="module" src="/js/main.js"></script>
+
+</html>
