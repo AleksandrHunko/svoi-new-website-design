@@ -44,8 +44,8 @@ export function initNews() {
           `).join('')}
         </div>
         <p class="text-small px-6 mb-5">${item.date}</p>
-        <h3 class="text-medium px-6 mb-3 max-h-[70px] md:max-h-[84px] overflow-hidden">${item.title}</h3>
-        <p class="text-regular font-light max-h-[96px] overflow-hidden px-6 mb-10">${item.description}</p>
+        <h3 class="text-medium px-6 mb-3 max-h-[70px] md:max-h-[77px] lg:max-h-[84px] overflow-hidden">${item.title}</h3>
+        <p class="text-regular font-light max-h-[93px] overflow-hidden px-6 mb-10">${item.description}</p>
       </a>
     `).join('')
   }
