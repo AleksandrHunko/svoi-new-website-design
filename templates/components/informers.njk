@@ -7,7 +7,7 @@
             {# NUMBER #}
             {% if informer.type == 'number' and informer.value %}
                 <div
-                    class="hover:bg-colored cursor-pointer flex flex-col justify-between items-start h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between items-start h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
                     >
                     <h4 class="text-[26px]/[26px] md:text-[38px]/[38px] lg:text-[56px]/[56px]">
                         {{ informer.value }}
@@ -22,7 +22,7 @@
             {% if informer.type == 'link' %}
                 <a
                     href="{{ informer.url }}"
-                    class="hover:bg-colored cursor-pointer flex flex-col justify-between items-center h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between items-center h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
                     >
                     {% if informer.icon %}
                         <span class="material-icons py-3" style="font-size: 40px;">
