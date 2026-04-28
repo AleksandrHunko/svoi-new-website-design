@@ -36,11 +36,11 @@ export function initNews() {
   function renderItems() {
     const tab = getActiveTab()
     listEl.innerHTML = tab.items.map(item => `
-      <a href="${item.href}" class="group bg-colored rounded-4xl relative hover:bg-colored flex-1 max-w-10/12 md:max-w-md min-w-xs overflow-hidden snap-start">
+      <a href="${item.href}" class="group bg-colored rounded-4xl relative hover:bg-colored-80 flex-1 max-w-10/12 md:max-w-md min-w-xs overflow-hidden snap-start">
         <img class="w-full aspect-video object-cover mb-2" src="${item.img}" alt="">
         <div class="flex flex-wrap px-6 mt-6 mb-4 gap-2">
           ${item.tags.map(tag => `
-            <p class="block bg-colored-80 group-hover:bg-(--theme-bg-20) transition-colors text-small font-light rounded-3xl py-1 px-2">${tag}</p>
+            <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">${tag}</p>
           `).join('')}
         </div>
         <p class="text-small px-6 mb-5">${item.date}</p>

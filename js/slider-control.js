@@ -28,22 +28,22 @@ export function initSliders() {
 
       // reset dots
       dots.forEach(dot => {
-        dot.classList.add("bg-(--theme-bg-80)") 
+        dot.classList.add("bg-colored-80") 
         dot.classList.remove("bg-black")
       });
 
       if (atStart) {
         dots[0].classList.add("bg-black")
-        dots[0].classList.remove("bg-(--theme-bg-80)")
+        dots[0].classList.remove("bg-colored-80")
         return
       }
       if (atEnd) {
         dots[2].classList.add("bg-black")
-        dots[2].classList.remove("bg-(--theme-bg-80)")
+        dots[2].classList.remove("bg-colored-80")
         return
       }
       dots[1].classList.add("bg-black")
-      dots[1].classList.remove("bg-(--theme-bg-80)")
+      dots[1].classList.remove("bg-colored-80")
     });
 
     // add slider control

@@ -1,6 +1,7 @@
 import { initNav, initMenuToggle, initAccessibilityDialog, initSearchDialog, initFloatingMenu } from './nav.js';
 import { validateInputs } from './validate-inputs.js';
 
+import { initViewToggle } from './toggle-view.js'
 import { initSliders } from './slider-control.js'
 import { galleryInit } from './gallery.js';
 
@@ -22,6 +23,7 @@ window.addEventListener('load', () => {
   galleryInit();
   filterMenuInit();
   initAccordionMenu();
+  initViewToggle()
 
   document.querySelector('.copyright-year').innerHTML = `toolkit.in.ua ${new Date().getFullYear()}. Всі права захищені.`
 });
