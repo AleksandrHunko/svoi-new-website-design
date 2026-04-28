@@ -1,0 +1,308 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored px-4 lg:px-[6%] xl:px-[8%] 2xl:px-[10%] py-8">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <h1 class="text-biggest mb-10">Документи громади</h1>
+        <form action="">
+            <div class="flex flex-wrap gap-2 justify-between items-start md:items-center w-full">
+                <div class="relative w-3/4 sm:w-2/3 lg:w-lg">
+                    <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                        placeholder="Назва послуги або життєва ситуація">
+                    <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+                </div>
+                <input type="checkbox" id="filter-toggle" class="peer hidden" />
+                <label for="filter-toggle" id="filter-button" role="button" aria-haspopup="true"
+                    class="cursor-pointer">
+                    <svg class="filter-closed cursor-pointer md:hidden" width="37" height="33" viewBox="0 0 37 33"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="stroke"
+                            d="M1.66699 4.33268C1.66699 3.39926 1.66699 2.93255 1.84865 2.57603C2.00844 2.26243 2.2634 2.00746 2.57701 1.84767C2.93353 1.66602 3.40024 1.66602 4.33366 1.66602H32.3337C33.2671 1.66602 33.7338 1.66602 34.0903 1.84767C34.4039 2.00746 34.6589 2.26243 34.8187 2.57603C35.0003 2.93255 35.0003 3.39926 35.0003 4.33268V5.44834C35.0003 5.89633 35.0003 6.12033 34.9456 6.32862C34.8971 6.5132 34.8172 6.68807 34.7095 6.84562C34.588 7.0234 34.4187 7.1701 34.0801 7.46351L23.4205 16.7019C23.082 16.9953 22.9127 17.142 22.7911 17.3197C22.6834 17.4773 22.6036 17.6522 22.5551 17.8367C22.5003 18.045 22.5003 18.269 22.5003 18.717V27.43C22.5003 27.7559 22.5003 27.9189 22.4478 28.0598C22.4013 28.1843 22.3258 28.2959 22.2274 28.3852C22.1161 28.4864 21.9648 28.5469 21.6622 28.6679L15.9955 30.9346C15.3829 31.1796 15.0767 31.3022 14.8308 31.2511C14.6158 31.2064 14.4271 31.0786 14.3057 30.8956C14.167 30.6863 14.167 30.3564 14.167 29.6966V18.717C14.167 18.269 14.167 18.045 14.1122 17.8367C14.0637 17.6522 13.9839 17.4773 13.8762 17.3197C13.7546 17.142 13.5854 16.9953 13.2468 16.7019L2.58718 7.46351C2.24863 7.1701 2.07936 7.0234 1.95781 6.84562C1.8501 6.68807 1.77025 6.5132 1.72174 6.32862C1.66699 6.12033 1.66699 5.89633 1.66699 5.44834V4.33268Z"
+                            stroke="black" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="filter-open hidden cursor-pointer md:hidden" width="27" height="27"
+                        viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="fill"
+                            d="M24.017 26.4289L13.2144 15.6093L2.41189 26.4289L0 24.017L10.8195 13.2144L0 2.41189L2.41189 0L13.2144 10.8195L24.017 0.0169855L26.4119 2.41189L15.6093 13.2144L26.4119 24.017L24.017 26.4289Z"
+                            fill="black" />
+                    </svg>
+                </label>
+                <div class="hidden peer-checked:flex md:flex flex-col md:flex-row gap-4 w-full md:w-auto">
+                    
+                    <button class="hidden md:block button-black text-regular cursor-pointer px-10"
+                        type="submit">Застосувати</button>
+                </div>
+                <div class="hidden peer-checked:flex flex-col md:flex md:flex-row md:flex-wrap gap-12 mt-8 w-full">
+                    <div class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="year-toggle" class="peer hidden" />
+                        <label for="year-toggle" id="year-menu-button" role="button" aria-haspopup="true"
+                            class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Рік</span>
+                            <svg
+                          class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                          width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+                          <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                        </label>
+                        <div class="md:absolute md:-left-6 mt-2 md:w-36 md:bg-white md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="year-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Рік">
+                                <legend class="sr-only">Рік</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2023" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2023</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2024" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2024</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2025" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2025</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="month-toggle" class="peer hidden" />
+                        <label for="month-toggle" id="month-menu-button" role="button" aria-haspopup="true"
+                            class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Місяць</span>
+                            <svg
+                          class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                          width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+                          <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                        </label>
+                        <div class="md:absolute md:-left-6 lg:left-0 mt-2 md:w-54 md:bg-white md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="month-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Місяць">
+                                <legend class="sr-only">Місяць</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="2023" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Січень</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="2024" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Лютий</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="2025" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Березень</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="relative w-full border-b-2 pb-4 md:w-auto md:border-b-0 md:pb-0">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-custom-20px focus:outline-none">
+                            <option disabled selected>Тип документа</option>
+                            <option>Очищення влади</option>
+                            <option>Додаткові питання</option>
+                            <option>Соціальний захост</option>
+                            <option>Регламент сесії</option>
+                        </select>
+                        <svg
+                          class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4"
+                          width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+                          <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <button class="md:hidden button-black text-regular cursor-pointer mt-4 w-full px-10"
+                    type="submit">Шукати</button>
+            </div>
+        </form>
+    </div>
+</header>
+
+
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% set breadcrumbs = [
+        { title: "Головна", url: "/pages/index.html" },
+        { title: "Документи громади" }
+    ] %}
+    {% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="toggle-view view-grid section-wrapper">
+    <div class="flex justify-end mb-2">
+        <div class="flex gap-2">
+            <button class="toggle-view-list cursor-pointer hover:text-colored">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <rect x="3" y="5" width="18" height="2.5" rx="1"/>
+                    <rect x="3" y="10.75" width="18" height="2.5" rx="1"/>
+                    <rect x="3" y="16.5" width="18" height="2.5" rx="1"/>
+                </svg>
+            </button>
+            <button class="toggle-view-grid cursor-pointer hover:text-colored">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                    <rect x="3" y="3" width="8" height="8" rx="1"/>
+                    <rect x="13" y="3" width="8" height="8" rx="1"/>
+                    <rect x="3" y="13" width="8" height="8" rx="1"/>
+                    <rect x="13" y="13" width="8" height="8" rx="1"/>
+                  </svg>
+            </button>
+        </div>
+    </div>
+    <div class="flex gap-8 mb-10">
+        <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-transparent hover:border-black" href="">
+            Проекти
+            <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg"></button>
+        </a>
+        <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-black" href="/documents">
+            Прийняті
+            <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg"></button>
+        </a>
+    </div>
+    <div class="grid grid-cols-1 md:view-grid:grid-cols-2 view-grid:gap-4 mb-10">
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
+            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
+                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                    08.01.2026
+                </p>
+                <div class="flex items-start gap-4">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Виконком
+                    </p>
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Фінанси
+                    </p>
+                </div>
+            </div>
+            <p class="view-list:group-hover:text-colored text-regular md:text-custom-20px overflow-hidden mb-6 pr-2">Про затвердження змін до заходів з реалізації Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+            <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+    </div>
+    <div class="flex justify-center sm:justify-between items-center w-full gap-2 pt-8 mt-8 border-t-2">
+        <!-- if link is active, remove pointer-events-none text-[#959595] to a -->
+        <a class="pointer-events-none text-[#959595] hidden sm:flex gap-2 items-center hover:text-colored"
+            href="">
+            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.2587 12.0017L2 11.9562M2 11.9562L12.652 22.6082M2 11.9562L12.6066 1.34961" stroke-width="2" />
+            </svg>
+            <p class="hidden sm:block text-regular" href="">Попередня сторінка</p>
+        </a>
+        <!-- active page has bg-colored pointer-events-none -->
+        <div class="flex justify-center items-end gap-2">
+            <a class="bg-colored pointer-events-none px-3 py-2 rounded-2xl hover:bg-colored-80" href="">1</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">2</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">3</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">4</a>
+            <p class="px-3 py-2 rounded-2xl " href="">...</p>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">57</a>
+        </div>
+        <!-- if link is inactive, add pointer-events-none text-[#959595] to a -->
+        <a class="group hidden sm:flex gap-2 items-center hover:text-colored" href="">
+            <p class="text-regular" href="">Наступна сторінка</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M1 11.9561L22.2587 12.0016M22.2587 12.0016L11.6067 1.34961M22.2587 12.0016L11.6521 22.6082"
+                     stroke-width="2" />
+            </svg>
+        </a>
+    </div>
+
+
+</section>
+
+{% endblock %}
