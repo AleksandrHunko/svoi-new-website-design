@@ -5,7 +5,7 @@
 <header class="bg-colored px-4 lg:px-[6%] xl:px-[8%] 2xl:px-[10%] py-8">
     <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
         <h1 class="text-biggest mb-10">Документи громади</h1>
-        <form action="">
+        <form action="" class="filter-form">
             <div class="flex flex-wrap gap-2 justify-between items-start md:items-center w-full">
                 <div class="relative w-3/4 sm:w-2/3 lg:w-lg">
                     <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
@@ -46,7 +46,7 @@
                           <path d="M0 0h10L5 6z"></path>
                         </svg>
                         </label>
-                        <div class="md:absolute md:-left-6 mt-2 md:w-36 md:bg-white md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                        <div class="md:absolute md:-left-6 mt-2 md:w-36 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
                             role="menu" aria-labelledby="year-menu-button">
                             <fieldset class="p-2" role="group" aria-label="Рік">
                                 <legend class="sr-only">Рік</legend>
@@ -80,7 +80,7 @@
                           <path d="M0 0h10L5 6z"></path>
                         </svg>
                         </label>
-                        <div class="md:absolute md:-left-6 lg:left-0 mt-2 md:w-54 md:bg-white md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                        <div class="md:absolute md:-left-6 lg:left-0 mt-2 md:w-54 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
                             role="menu" aria-labelledby="month-menu-button">
                             <fieldset class="p-2" role="group" aria-label="Місяць">
                                 <legend class="sr-only">Місяць</legend>
@@ -160,7 +160,7 @@
     </div>
     <div class="flex gap-8 mb-10">
         <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-transparent hover:border-black" href="">
-            Проекти
+            Проєкти
             <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg"></button>
         </a>
         <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-black" href="/documents">
@@ -170,11 +170,17 @@
     </div>
     <div class="grid grid-cols-1 md:view-grid:grid-cols-2 view-grid:gap-4 mb-10">
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                    <!-- Цей тег є для всіх на сторінці "Проєкти" -->
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Проєкт документа
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -187,11 +193,17 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                    <!-- Цей тег є для всіх на сторінці "Проєкти" -->
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        Проєкт документа
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -204,11 +216,13 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -221,11 +235,13 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -238,11 +254,13 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -255,11 +273,13 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
         <a class="group relative pt-10 view-grid:pb-16 view-list:pb-4 px-10 view-grid:bg-colored view-grid:rounded-3xl view-grid:hover:bg-colored-80 view-list:border-b-2 view-list:border-[#eaeaea] view-list:w-full lg:view-list:w-3/4" href="">
-            <div class="flex view-grid:justify-between items-start gap-4 mb-4">
-                <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    08.01.2026
-                </p>
-                <div class="flex items-start gap-4">
+            <div class="flex view-grid:justify-between flex-wrap items-start gap-4 mb-4">
+                <div class="flex items-start gap-3">
+                    <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
+                        08.01.2026
+                    </p>
+                </div>
+                <div class="flex items-start gap-3">
                     <p class="block bg-colored-80 view-grid:group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
                         Виконком
                     </p>
@@ -272,37 +292,8 @@
             <img class="view-list:hidden absolute bottom-5 right-5 w-9 h-9 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
         </a>
     </div>
-    <div class="flex justify-center sm:justify-between items-center w-full gap-2 pt-8 mt-8 border-t-2">
-        <!-- if link is active, remove pointer-events-none text-[#959595] to a -->
-        <a class="pointer-events-none text-[#959595] hidden sm:flex gap-2 items-center hover:text-colored"
-            href="">
-            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M23.2587 12.0017L2 11.9562M2 11.9562L12.652 22.6082M2 11.9562L12.6066 1.34961" stroke-width="2" />
-            </svg>
-            <p class="hidden sm:block text-regular" href="">Попередня сторінка</p>
-        </a>
-        <!-- active page has bg-colored pointer-events-none -->
-        <div class="flex justify-center items-end gap-2">
-            <a class="bg-colored pointer-events-none px-3 py-2 rounded-2xl hover:bg-colored-80" href="">1</a>
-            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">2</a>
-            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">3</a>
-            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">4</a>
-            <p class="px-3 py-2 rounded-2xl " href="">...</p>
-            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">57</a>
-        </div>
-        <!-- if link is inactive, add pointer-events-none text-[#959595] to a -->
-        <a class="group hidden sm:flex gap-2 items-center hover:text-colored" href="">
-            <p class="text-regular" href="">Наступна сторінка</p>
-            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M1 11.9561L22.2587 12.0016M22.2587 12.0016L11.6067 1.34961M22.2587 12.0016L11.6521 22.6082"
-                     stroke-width="2" />
-            </svg>
-        </a>
-    </div>
 
-
+    {% include "templates/components/pagination.njk" %}
 </section>
 
 {% endblock %}

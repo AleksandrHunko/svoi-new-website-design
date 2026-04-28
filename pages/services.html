@@ -1,0 +1,645 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-8 w-full">
+            <div class="flex-2">
+                <h1 class="text-biggest">Центр надання
+                    адміністративних
+                    послуг</h1>
+                <h4 class="mt-6 text-2xl">Луцьк, Волинська область</h4>
+            </div>
+            <div class="flex-1 mt-2">
+                <p class="text-regular mb-4">Слідкуй за нами тут:</p>
+                <div class="flex gap-4 flex-wrap items-start">
+                    {% set mediaLinks = [
+                    { section: "Facebook", link: "https://facebook.com" },
+                    { section: "Twitter", link: "https://x.com" },
+                    { section: "Instagram", link: "https://instagram.com" },
+                    { section: "Youtube", link: "https://youtube.com" },
+                    { section: "WhatsApp", link: "https://whatsapp.com" },
+                    { section: "Viber", link: "https://viber.com" },
+                    { section: "Telegram", link: "https://telegram.org" }
+                    ] %}
+                    {% set size = 48 %}
+                    {% include "templates/components/media-links.njk" %}
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex justify-start flex-wrap gap-x-3 gap-y-4 my-8">
+            {% set informers = [
+            { type: 'number', value: '1200', label: 'Кількість послуг' },
+            { type: 'number', value: '1', label: 'Центрів надання послуг' },
+            { type: 'number', value: '2134321', label: 'Резервацій онлайн' },
+            { type: 'link', label: 'Записатися в чергу', url: '#', icon: 'edit_calendar' }
+            ] %}
+            {% include "templates/components/informers.njk" %}
+
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Послуги" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="bg-colored mt-8">
+    <div class="section-wrapper">
+        <h2 class="text-bigger mb-10">Знайти послугу</h2>
+        <form action="" class="filter-form">
+            <div class="flex flex-wrap gap-2 justify-between items-start md:items-center w-full">
+                <div class="relative w-3/4 sm:w-2/3 lg:w-lg">
+                    <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                        placeholder="Назва послуги">
+                    <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+                </div>
+                <input type="checkbox" id="filter-toggle" class="peer hidden" />
+                <label for="filter-toggle" id="filter-button" role="button" aria-haspopup="true" class="cursor-pointer">
+                    <svg class="filter-closed cursor-pointer md:hidden" width="37" height="33" viewBox="0 0 37 33"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="stroke"
+                            d="M1.66699 4.33268C1.66699 3.39926 1.66699 2.93255 1.84865 2.57603C2.00844 2.26243 2.2634 2.00746 2.57701 1.84767C2.93353 1.66602 3.40024 1.66602 4.33366 1.66602H32.3337C33.2671 1.66602 33.7338 1.66602 34.0903 1.84767C34.4039 2.00746 34.6589 2.26243 34.8187 2.57603C35.0003 2.93255 35.0003 3.39926 35.0003 4.33268V5.44834C35.0003 5.89633 35.0003 6.12033 34.9456 6.32862C34.8971 6.5132 34.8172 6.68807 34.7095 6.84562C34.588 7.0234 34.4187 7.1701 34.0801 7.46351L23.4205 16.7019C23.082 16.9953 22.9127 17.142 22.7911 17.3197C22.6834 17.4773 22.6036 17.6522 22.5551 17.8367C22.5003 18.045 22.5003 18.269 22.5003 18.717V27.43C22.5003 27.7559 22.5003 27.9189 22.4478 28.0598C22.4013 28.1843 22.3258 28.2959 22.2274 28.3852C22.1161 28.4864 21.9648 28.5469 21.6622 28.6679L15.9955 30.9346C15.3829 31.1796 15.0767 31.3022 14.8308 31.2511C14.6158 31.2064 14.4271 31.0786 14.3057 30.8956C14.167 30.6863 14.167 30.3564 14.167 29.6966V18.717C14.167 18.269 14.167 18.045 14.1122 17.8367C14.0637 17.6522 13.9839 17.4773 13.8762 17.3197C13.7546 17.142 13.5854 16.9953 13.2468 16.7019L2.58718 7.46351C2.24863 7.1701 2.07936 7.0234 1.95781 6.84562C1.8501 6.68807 1.77025 6.5132 1.72174 6.32862C1.66699 6.12033 1.66699 5.89633 1.66699 5.44834V4.33268Z"
+                            stroke="black" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="filter-open hidden cursor-pointer md:hidden" width="27" height="27" viewBox="0 0 27 27"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="fill"
+                            d="M24.017 26.4289L13.2144 15.6093L2.41189 26.4289L0 24.017L10.8195 13.2144L0 2.41189L2.41189 0L13.2144 10.8195L24.017 0.0169855L26.4119 2.41189L15.6093 13.2144L26.4119 24.017L24.017 26.4289Z"
+                            fill="black" />
+                    </svg>
+                </label>
+                <div class="hidden peer-checked:flex md:flex flex-col md:flex-row gap-4 w-full md:w-auto">
+
+                    <button class="hidden md:block button-black text-regular cursor-pointer px-10"
+                        type="submit">Застосувати</button>
+                </div>
+                <div
+                    class="hidden peer-checked:grid grid-cols-1 md:grid md:grid-cols-2 lg:flex lg:flex-row lg:items-center flex-wrap gap-8 mt-8 w-full">
+                    <div class="relative w-full border-b-2 pb-4 md:w-auto md:border-b-0 md:pb-0 lg:flex-1 lg:min-w-0">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-custom-20px focus:outline-none">
+                            <option disabled selected>Категорія послуги</option>
+                            <option>Категорія 1</option>
+                            <option>Категорія 2 дууууууже довга назва</option>
+                            <option>Категорія 3</option>
+                            <option>Категорія 4</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                    <div
+                        class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="thematic-area-toggle" class="peer hidden" />
+                        <label for="thematic-area-toggle" id="thematic-area-menu-button" role="button"
+                            aria-haspopup="true" class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Тематична область</span>
+                            <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                                width="16" height="16" viewBox="0 0 10 6" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M0 0h10L5 6z"></path>
+                            </svg>
+                        </label>
+                        <div class="md:absolute md:right-0 mt-2 md:w-64 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="thematic-area-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Тематична область">
+                                <legend class="sr-only">Тематична область</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="thematic-area" value="2023" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Земля та екологія</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="thematic-area" value="2024" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Громадянство та міграція</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="thematic-area" value="2025" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Будівництво та нерухомість</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div
+                        class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="events-toggle" class="peer hidden" />
+                        <label for="events-toggle" id="events-menu-button" role="button" aria-haspopup="true"
+                            class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Життєва подія</span>
+                            <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                                width="16" height="16" viewBox="0 0 10 6" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M0 0h10L5 6z"></path>
+                            </svg>
+                        </label>
+                        <div class="md:absolute md:-left-6 lg:left-0 mt-2 md:w-60 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="events-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Життєва подія">
+                                <legend class="sr-only">Життєва подія</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="events" value="2023" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Використання землі та екологічна безпека</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="events" value="2024" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Воєнний стан</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="events" value="2025" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Використання землі та екологічна безпека</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="relative w-full border-b-2 pb-4 md:w-auto md:border-b-0 md:pb-0">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-custom-20px focus:outline-none">
+                            <option selected>Можливість податися онлайн</option>
+                            <option>Так</option>
+                            <option>Ні</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <button class="md:hidden button-black text-regular cursor-pointer mt-4 w-full px-10"
+                    type="submit">Шукати</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <a class="bg-colored rounded-3xl relative hover:bg-colored-80 pt-10 pb-16 px-10" href="">
+            <h3 class="text-medium max-h-[74px] md:max-h-[86px] overflow-hidden mb-6">Безпека життєдіяльності
+            </h3>
+            <p class="text-regular border-t-2 max-h-[168px] overflow-hidden pt-6 pr-2">Тут ви можете дізнатися
+                все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут ви можете
+                дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця проживання.Тут
+                ви можете дізнатися все про паспортні послуги, реєстрацію актів цивільного стану або місця
+                проживання.</p>
+            <img class="absolute bottom-5 right-5 w-9 h-9" src="/img/material-design/arrow.svg" alt="">
+        </a>
+        <div
+            class="bg-colored flex flex-col justify-between rounded-3xl col-start-1 md:col-start-2 lg:col-start-3 md:row-start-2 row-span-2 p-10">
+            <div>
+                <div class="flex gap-4 mb-8">
+                    <img class="w-20 h-20" src="/img/diia-logo.svg" alt="">
+                    <img class="w-20 h-20" src="/img/material-design/gerb-filler.svg" alt="">
+                </div>
+                <h3 class="text-bigger mb-8">Портал державних послуг «Дія»</h3>
+                <p class="text-regular font-light mb-4">Онлайн-сервіс державних послуг, де все швидко, чітко й зрозуміло. Тут
+                    можна отримати послугу там і тоді, коли потрібно.</p>
+            </div>
+            <a class="button-black w-full text-center" target="_blank" href="https://diia.gov.ua/services">Перейти</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <section class="section-wrapper">
+        <div class="flex justify-between items-end w-full mb-10">
+            <h2 class="text-biggest">
+                Новини
+            </h2>
+            <a class="button-transparent text-custom-18px" href="">
+                Всі новини
+            </a>
+        </div>
+        {% include "templates/components/news.njk" %}
+    </section>
+
+    {% set allInstitutions = [
+    {
+    id: 1,
+    name: "ЦНАП Центральний",
+    fullname: "Центр надання адміністративних послуг (Центральний офіс)",
+    address: "вул. Хрещатик, 36, Черкаси, 18000",
+    phones: "+38 (0472) 37-10-10",
+    firstPhone: "+380472371010",
+    emails: ["cnap.central@ck-rada.gov.ua"],
+    coordLat: 49.4444,
+    coordLng: 32.0598
+    },
+    {
+    id: 2,
+    name: "ЦНАП Придніпровський",
+    fullname: "Центр надання адміністративних послуг (Придніпровський відділ)",
+    address: "вул. Набережна, 15, Черкаси, 18002",
+    phones: "+38 (0472) 55-20-30",
+    firstPhone: "+380472552030",
+    emails: ["cnap.prydnipro@ck-rada.gov.ua", "info@cnap-ck.ua"],
+    coordLat: 49.4398,
+    coordLng: 32.0712
+    }
+    ] %}
+    {% include "templates/components/contacts.njk" %}
+
+
+    <section class="section-wrapper border-b-2 border-[#eaeaea]">
+        <div class="flex justify-between items-end w-full mb-8">
+            <h2 class="text-biggest">
+                Команда ЦНАП
+            </h2>
+            <a class="button-transparent" href="https://cnap.test.toolkit.in.ua/team">
+                Вся команда
+            </a>
+        </div>
+        <div class="flex flex-col md:flex-row gap-8 items-start md:items-center mb-8">
+            <div class="flex-1 flex flex-col lg:flex-row gap-8 justify-between items-center">
+                <div class="flex-1">
+                    <img class="w-full max-w-[360px] lg:max-w-none h-auto aspect-square object-cover rounded-2xl"
+                        src="https://storage.googleapis.com/svoi-upload/20/473190/8dfe1ac5-ec26-408a-a22b-3316ef73d872.jpg"
+                        alt="Іванова Наталія Василівна">
+                </div>
+                <div class="flex flex-col justify-between flex-1">
+                    <h3 class="text-big mb-6">
+                        Іванова Наталія Василівна
+                    </h3>
+                    <p class="text-regular mb-4">
+                        Оболонський Старостат, вулиця Дніпровська набережна, 19-Б
+                    </p>
+                    <p class="text-regular">
+                        Телефон:
+                    </p>
+                    <p class="text-regular mb-4">
+                        +380442026038
+                    </p>
+                    <p class="text-regular">
+                        email:
+                    </p>
+                    <p class="text-regular mb-6 ">
+                        info@linetec.net, ssakalosh@egap.in.ua
+                    </p>
+                </div>
+            </div>
+            <div class="flex-1 grid grid-cols-2 gap-8">
+                <a href="https://cnap.test.toolkit.in.ua/cherga"
+                    class="relative bg-colored hover:bg-colored-80 cursor-pointer flex flex-col justify-center items-center gap-8 aspect-2/1 md:aspect-square w-full rounded-3xl p-6">
+                    <img class="w-24 h-24 lg:w-28 lg:h-28 pointer-events-none" src="/img/material-design/qr.svg" alt="">
+                    <p class="text-big text-center">
+                        Записатися в чергу
+                    </p>
+                    <img class="hidden lg:block absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+
+                </a>
+                <a href="https://cnap.test.toolkit.in.ua/cases"
+                    class="relative bg-colored hover:bg-colored-80 cursor-pointer flex flex-col justify-center items-center gap-8 aspect-2/1 md:aspect-square w-full rounded-3xl p-6">
+                    <img class="w-24 h-24 lg:w-28 lg:h-28 pointer-events-none" src="/img/material-design/briefcase.svg" alt="">
+
+                    <p class="text-big text-center">
+                        Мобільна валіза
+                    </p>
+                    <img class="hidden lg:block absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+
+                </a>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <div class=" flex flex-col ">
+                <div class="flex justify-center items-center rounded-2xl overflow-hidden aspect-square bg-colored mb-4">
+                    <img class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/svoi-upload/20/191691/9f381531-197b-46f2-964c-7827d48f6ca1.jpeg"
+                        alt="Кальченко Тетяна Володимирівна">
+                </div>
+                <h3 class="text-big mb-4">
+                    Кальченко Тетяна Володимирівна
+                </h3>
+                <p class="text-regular font-light md:font-normal pb-4 border-b-2 mb-4">
+                    Адміністратор
+                </p>
+                <p class="text-regular">
+                    Телефон:
+                </p>
+                <p class="text-regular font-light mb-4">
+                    +380443665911
+                </p>
+                <p class="text-regular">
+                    email:
+                </p>
+                <p class="text-regular font-light mb-6 ">
+                    cnap@shev.kmda.gov.ua
+                </p>
+            </div>
+            <div class=" flex flex-col ">
+                <div class="flex justify-center items-center rounded-2xl overflow-hidden aspect-square bg-colored mb-4">
+                    <img class="w-1/2 h-1/2 pointer-events-none" src="/img/material-design/gerb-filler.svg" alt="">
+
+                </div>
+                <h3 class="text-big mb-4">
+                    Ірчишина Ірина Іванівна
+                </h3>
+                <p class="text-regular font-light md:font-normal pb-4 border-b-2 mb-4">
+                    Адміністратор
+                </p>
+                <p class="text-regular">
+                    Телефон:
+                </p>
+                <p class="text-regular font-light mb-4">
+                    +380443665911
+                </p>
+                <p class="text-regular">
+                    email:
+                </p>
+                <p class="text-regular font-light mb-6 ">
+                    cnap@shev.kmda.gov.ua
+                </p>
+            </div>
+            <div class=" flex flex-col ">
+                <div class="flex justify-center items-center rounded-2xl overflow-hidden aspect-square bg-colored mb-4">
+                    <img class="w-1/2 h-1/2 pointer-events-none" src="/img/material-design/gerb-filler.svg" alt="">
+                </div>
+                <h3 class="text-big mb-4">
+                    Міська Габріелла Петрівна
+                </h3>
+                <p class="text-regular font-light md:font-normal pb-4 border-b-2 mb-4">
+                    Адміністратор
+                </p>
+                <p class="text-regular">
+                    Телефон:
+                </p>
+                <p class="text-regular font-light mb-4">
+                    +380443665911
+                </p>
+                <p class="text-regular">
+                    email:
+                </p>
+                <p class="text-regular font-light mb-6 ">
+                    cnap@shev.kmda.gov.ua
+                </p>
+            </div>
+            <div class=" hidden lg:flex flex-col ">
+                <div class="flex justify-center items-center rounded-2xl overflow-hidden aspect-square bg-colored mb-4">
+                    <img class="w-full h-full object-cover"
+                        src="https://storage.googleapis.com/svoi-upload/20/510730/2d1d2c7c-806a-4244-836a-719fdfd481d3.jpg"
+                        alt="Мельник Ольга Сергіївна">
+                </div>
+                <h3 class="text-big mb-4">
+                    Мельник Ольга Сергіївна
+                </h3>
+                <p class="text-regular font-light md:font-normal pb-4 border-b-2 mb-4">
+                    Реєстрація авто і тракторів
+                </p>
+                <p class="text-regular">
+                    Телефон:
+                </p>
+                <p class="text-regular font-light mb-4">
+                    +380631234567
+                </p>
+                <p class="text-regular">
+                    email:
+                </p>
+                <p class="text-regular font-light mb-6 ">
+                    test.cnap@gmail.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    {% set cnap = { coordLat: 49.4521, coordLng: 32.0614 } %}
+    {% include "templates/components/map.njk" %}
+
+    <section class="section-wrapper border-b-2 border-[#eaeaea]">
+        <h2 class="text-biggest mb-10">
+            Публічна інформація
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a href="https://cnap.test.toolkit.in.ua/pub-info/62805-zakon-ukrayini-pro-zasadi-derzavnoyi-reguliatornoyi-politiki-u-sferi-gospodarskoyi-diialnosti"
+                class="relative w-full hover:text-colored">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-2 w-40">
+                    04.07.2023
+                </p>
+                <h3 class="w-full text-big border-t-2 mt-2 pt-4 pr-8 md:pr-0">
+                    Закон України Про засади державної регуляторної політики у сфері господарської діяльності
+                </h3>
+                <img class="md:hidden absolute w-4 h-4 bottom-0 right-2 pointer-events-none" src="/img/material-design/link-inner.svg" alt="">
+
+            </a>
+            <a href="https://cnap.test.toolkit.in.ua/pub-info/141954-informaciia-pro-zapit"
+                class="relative w-full hover:text-colored">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-2 w-40">
+                    02.05.2024
+                </p>
+                <h3 class="w-full text-big border-t-2 mt-2 pt-4 pr-8 md:pr-0">
+                    Інформація про запит
+                </h3>
+                <img class="md:hidden absolute w-4 h-4 bottom-0 right-2 pointer-events-none" src="/img/material-design/link-inner.svg" alt="">
+
+            </a>
+            <a class="col-start-1 md:col-start-3 row-start-1 bg-colored rounded-3xl relative hover:bg-colored-80 p-10 pr-16"
+                href="https://cnap.test.toolkit.in.ua/documents/8832-metodologicne-zabezpecennia-biudzetnogo-procesu-gromadi-mista-kijev">
+                <img class="w-28 h-auto mb-16 pointer-events-none" src="/img/material-design/decisions-img.svg" alt="">
+                <h3 class="text-medium">
+                    Положення про Виконком та Регламент
+                </h3>
+                <img class="absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+
+            </a>
+        </div>
+    </section>
+
+
+    {% set galleryImages = [
+    { url: "/img/cabinet-1.png", name: "Зал обслуговування" },
+    { url: "/img/cabinet-2.jpg", name: "Робочі місця" },
+    { url: "/img/cabinet-3.png", name: "Зона очікування" },
+    { url: "/img/cabinet-4.jpg", name: "Ресепшн" },
+    { url: "/img/photo-1.jpg", name: "Фото 1" },
+    { url: "/img/sample-1.jpg", name: "Фото 2" },
+    { url: "/img/sample-2.jpg", name: "Фото 3" },
+    { url: "/img/sample-3.jpg", name: "Фото 4" }
+    ] %}
+    {% include "templates/components/media-gallery.njk" %}
+
+    {% endblock %}

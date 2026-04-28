@@ -13,13 +13,14 @@
     <meta name="description" content="{% block description %}{% endblock %}">
 </head>
 
-<body class="w-full color-style-2">
+<body class="w-full color-style-7">
     <nav class="bg-colored">
         <div class="flex justify-between items-center px-4 md:px-8 max-w-[1440px] mx-auto h-26 w-full">
-            <div class="nav-desktop-top overflow-hidden flex gap-5 h-16 justify-between items-center">
+            <div class="flex items-center h-16">
                 <a class="block h-full" href="/">
                     <img class="h-full object-center object-contain mr-7" src="/img/logo.png" alt=""/>
                 </a>
+                <div class="nav-desktop-top overflow-hidden flex gap-5 h-16 justify-between items-center">
                 <a class="hover-underline-slide shrink-0" href="/pages/index.html">Головна</a>
                 <a class="hover-underline-slide shrink-0" href="/pages/news-all.html">Новини</a>
                 <a class="hover-underline-slide shrink-0" href="#">Документи</a>
@@ -27,6 +28,7 @@
                 <a class="hover-underline-slide shrink-0" href="#">Муніципалітет</a>
                 <a class="hover-underline-slide shrink-0" href="#">Контакти</a>
                 <a class="hover-underline-slide shrink-0 cursor-pointer flex items-center gap-1 menuToggle">Ще<span class="inline-block text-xs ml-2 rotate-90">▶</span></a>
+                </div>
             </div>
             <div class="flex gap-4 h-16 justify-between items-center">
                 <svg
@@ -231,7 +233,7 @@
 
     <div id="floating-context-menu" class="fixed bottom-7 right-7 z-[1010] flex flex-col items-end gap-3">
         <div id="floating-menu-items" class="floating-menu-items">
-            <a href="tel:{{ cnap.firstPhone }}" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
+            <a href="tel:" class="floating-menu-item flex items-center gap-3 bg-colored rounded-full pl-5 pr-2 py-2 shadow-lg">
                 <span class="text-regular whitespace-nowrap">Гаряча лінія</span>
                 <span class="w-10 h-10 rounded-full bg-colored-80 flex items-center justify-center shrink-0">
                     <svg class="pointer-events-none" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
@@ -284,6 +286,15 @@
     <footer class="bg-colored">
         <div class="section-wrapper">
 
+            {% set mediaLinks = [
+                { section: "Facebook", link: "https://facebook.com" },
+                { section: "Telegram", link: "https://t.me" },
+                { section: "Instagram", link: "https://instagram.com" },
+                { section: "Youtube", link: "https://youtube.com" },
+                { section: "Twitter", link: "" },
+                { section: "Viber", link: "" },
+                { section: "WhatsApp", link: "" }
+            ] %}
             {% include "templates/components/bottom-navigation.njk" %}
 
             <div class="flex flex-col lg:flex-row py-8 gap-8 border-b-2">

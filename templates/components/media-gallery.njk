@@ -1,0 +1,65 @@
+{# Expects variable: galleryImages (array of {url, name}) #}
+{% if galleryImages and galleryImages.length %}
+    <section class="section-wrapper">
+        <div class="flex justify-between items-end w-full mb-6">
+            <h2 class="text-biggest">
+                Галерея
+            </h2>
+            {% if galleryImages.length > 2 %}
+                <div class="slider-control-arrows flex gap-8" data-target="galleryContainer">
+                    <svg
+                        fill="#959595"
+                        width="18"
+                        height="29"
+                        viewBox="0 0 18 29"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M14.1776 28.3551L0 14.1775L14.1776 0L17.1551 3.01642L5.99398 14.1775L17.1551 25.3387L14.1776 28.3551Z"
+                        />
+                    </svg>
+                    <svg
+                        class="cursor-pointer"
+                        fill="black"
+                        width="18"
+                        height="29"
+                        viewBox="0 0 18 29"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M11.1611 14.1775L0 3.01642L2.97751 0L17.1551 14.1775L2.97751 28.3551L0 25.3387L11.1611 14.1775Z"
+                        />
+                    </svg>
+                </div>
+            {% endif %}
+        </div>
+        <div
+            id="galleryContainer"
+            class="grid grid-rows-1 md:grid-rows-2 grid-flow-col auto-cols-[calc(50%)] lg:auto-cols-[calc(33.333%)] gap-4 overflow-x-auto scroll-smooth snap-x scrollbar-hide pr-1"
+            >
+            {% for image in galleryImages %}
+                <a
+                    class="snap-start"
+                    href="{{ image.url }}"
+                    data-pswp-width=""
+                    data-pswp-height=""
+                    >
+                    <img
+                        src="{{ image.url }}"
+                        class="w-full aspect-video object-cover rounded-lg md:hover:scale-101 transition-transform"
+                        alt="{{ image.name }}"
+                    />
+                </a>
+            {% endfor %}
+        </div>
+        {% if galleryImages.length > 2 %}
+            <div class="slider-control-dots flex w-full justify-center gap-1 mt-3" data-target="galleryContainer">
+                <span class="w-4 h-4 bg-black cursor-pointer"></span>
+                <span class="w-4 h-4 bg-colored-80 cursor-pointer"></span>
+                <span class="w-4 h-4 bg-colored-80 cursor-pointer"></span>
+            </div>
+        {% endif %}
+    </section>
+{% endif %}

@@ -1,0 +1,63 @@
+{# Expects variable: allInstitutions (array of institution objects from data) #}
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-6">
+        <h2 class="text-biggest">
+            Адреси
+        </h2>
+        <a
+            class="button-transparent"
+            href="#"
+            target="_blank"
+            >
+            {# route('cnap.contacts') #}
+            Всі адреси
+        </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {% for institution in allInstitutions %}
+            <div class="{% if loop.index >= 3 %}hidden {% endif %}lg:block bg-colored rounded-3xl p-10">
+                <h3 class="text-big mb-4">
+                    {{ institution.fullname }}
+                </h3>
+                <p class="text-small pb-8 border-b-2 mb-12">
+                    {{ institution.address }}
+                </p>
+                <div class="flex w-full justify-between gap-2 mb-8">
+                    <p class="text-medium">
+                        Телефон:
+                    </p>
+                    <p class="text-medium text-end">
+                        {{ institution.phones }}
+                    </p>
+                </div>
+                <div class="flex w-full justify-between items-start gap-2 pb-8 border-b-2 mb-12">
+                    <p class="text-medium">
+                        Ел. Пошта:
+                    </p>
+                    <p class="text-medium text-end">
+                        {% for email in institution.emails %}
+                            <a href="mailto:{{ email }}">{{ email }}</a>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="flex flex-row flex-wrap gap-8">
+                    <a
+                        class="button-transparent"
+                        href="#"
+                        >
+                        {# route('cnap.institution', [institution.id]) #}
+                        Детальніше
+                    </a>
+                    {% if institution.firstPhone %}
+                        <a
+                            class="button-black px-10"
+                            href="tel:{{ institution.firstPhone }}"
+                            >
+                            Зателефонувати
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

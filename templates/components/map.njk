@@ -1,0 +1,165 @@
+{# Expects variables: community, cnap, allInstitutions #}
+{% if community.communityExtra.show_maps_cnap %}
+	<section class="section-wrapper">
+        <div class="flex justify-between items-end w-full mb-10">
+            <h2 class="text-biggest">
+                Мапа
+            </h2>
+            {% if allInstitutions.length > 1 %}
+                <div class="slider-control-arrows flex gap-8" data-target="department-slider">
+                    <svg
+                        fill="#959595"
+                        width="18"
+                        height="29"
+                        viewBox="0 0 18 29"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M14.1776 28.3551L0 14.1775L14.1776 0L17.1551 3.01642L5.99398 14.1775L17.1551 25.3387L14.1776 28.3551Z"
+                        />
+                    </svg>
+                    <svg
+                        class="cursor-pointer"
+                        fill="black"
+                        width="18"
+                        height="29"
+                        viewBox="0 0 18 29"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M11.1611 14.1775L0 3.01642L2.97751 0L17.1551 14.1775L2.97751 28.3551L0 25.3387L11.1611 14.1775Z"
+                        />
+                    </svg>
+                </div>
+            {% endif %}
+        </div>
+        <div class="mt-4 flex flex-col lg:flex-row items-center gap-10">
+        	<div class="w-full lg:w-[59%] rounded-3xl overflow-hidden">
+        		<div id="cnap-map" class="w-full h-[300px] md:h-[500px]"></div>
+        	</div>
+            <div class="w-[80%] lg:w-1/3 mx-auto mb-4">
+                <div id="department-slider"
+                    class="relative flex gap-4 justify-start overflow-x-auto snap-x scroll-smooth scrollbar-hide"
+                    >
+                    {% for institution in allInstitutions %}
+                        <div class="w-full flex flex-col shrink-0 snap-start">
+                            <h3 class="text-big mb-4">
+                                {{ institution.fullname }}
+                            </h3>
+                            <p class="text-small pb-8 border-b-2 mb-12">
+                                {{ institution.address }}
+                            </p>
+                            <div class="flex w-full justify-between items-start gap-4 mb-8">
+                                <p class="text-medium">
+                                    Телефони:
+                                </p>
+                                <p class="text-medium text-end">
+                                    {{ institution.phones }}
+                                </p>
+                            </div>
+                            <div class="flex w-full justify-between items-start gap-2 mb-12">
+                                <p class="text-medium">
+                                    Email:
+                                </p>
+                                <p class="text-medium text-end">
+                                    {% for email in institution.emails %}
+                                        <a href="mailto:{{ email }}">{{ email }}</a>{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </p>
+                            </div>
+
+                            <a
+                                class="button-black text-center w-64 mx-auto"
+                                href="#"
+                                >
+                                {# route('cnap.institution', [institution.id]) #}
+                                Детальніше
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if allInstitutions.length > 1 %}
+                    <div
+                        class="slider-control-dots flex w-full justify-center gap-1 mt-4"
+                        data-target="department-slider"
+                        >
+                        <span class="w-4 h-4 bg-black cursor-pointer"></span>
+                        <span class="w-4 h-4 bg-colored-80 cursor-pointer"></span>
+                        <span class="w-4 h-4 bg-colored-80 cursor-pointer"></span>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+	</section>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
+        integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"
+        integrity="sha512-ozq8xQKq6urvuU6jNgkfqAmT7jKN2XumbrX1JiB3TnF7tI48DPI4Gy1GXKD/V3EExgAs1V+pRO7vwtS1LHg0Gw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script>
+        window.addEventListener('load', function () {
+            if (document.querySelector("#cnap-map") != null) {
+                const map = L.map('cnap-map').setView(setView.coord, setView.zoom);
+
+                L.tileLayer('https://tiles.openstreetmap.org.ua/osm/{z}/{x}/{y}.png', {
+                    attribution: '<a href="https://www.minregion.gov.ua/" rel="nofollow" target="_blank">Мінрегіон</a>; <a href="https://github.com/tomchadwin/qgis2web" target="_blank" rel="nofollow">qgis2web</a> &middot; <a href="https://qgis.org" rel="nofollow" target="_blank">QGIS</a> &copy; <a href="https://tiles.openstreetmap.org.ua/#6/48.959/32.311" rel="nofollow" target="_blank">OSM UA volunteer\'s server</a>',
+                }).addTo(map);
+
+                const institutionIcon = L.icon({
+                    iconUrl: '/images/subdomain/marker.png',
+                    iconSize: [47, 70]
+                });
+
+                for (let i = 0; i < locations.length; i++) {
+                    L.marker(
+                        [
+                            locations[i].lat,
+                            locations[i].lon
+                        ],
+                        {
+                            icon: institutionIcon,
+                            riseOnHover: true,
+                            draggable: false
+                        }
+                    ).addTo(map).bindPopup(
+                        locations[i].description,
+                        {
+                            closeOnClick: false,
+                            autoClose: false
+                        }
+                    )
+                }
+            }
+        });
+    </script>
+    <script>
+        const setView = {
+            coord: [
+                {{ cnap.coordLat }},
+                {{ cnap.coordLng }}
+            ],
+            zoom: 10
+        }
+        const locations = [
+            {% for institution in allInstitutions %}
+                {% if institution.coordLat and institution.coordLng %}
+                    {
+                        lat: {{ institution.coordLat }},
+                        lon: {{ institution.coordLng }},
+                        description: "{{ institution.name }}"
+                    }{% if not loop.last %},{% endif %}
+                {% endif %}
+            {% endfor %}
+        ]
+    </script>
+{% endif %}

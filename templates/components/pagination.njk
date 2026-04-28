@@ -1,0 +1,29 @@
+<div class="flex justify-center sm:justify-between items-center w-full gap-2 pt-8 mt-8 border-t-2">
+        <!-- if link is active, remove pointer-events-none text-[#959595] to a -->
+        <a class="pointer-events-none text-[#959595] hidden sm:flex gap-2 items-center hover:text-colored"
+            href="">
+            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.2587 12.0017L2 11.9562M2 11.9562L12.652 22.6082M2 11.9562L12.6066 1.34961" stroke-width="2" />
+            </svg>
+            <p class="hidden sm:block text-regular" href="">Попередня сторінка</p>
+        </a>
+        <!-- active page has bg-colored pointer-events-none -->
+        <div class="flex justify-center items-end gap-2">
+            <a class="bg-colored pointer-events-none px-3 py-2 rounded-2xl hover:bg-colored-80" href="">1</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">2</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">3</a>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">4</a>
+            <p class="px-3 py-2 rounded-2xl " href="">...</p>
+            <a class="px-3 py-2 rounded-2xl hover:bg-colored-80" href="">57</a>
+        </div>
+        <!-- if link is inactive, add pointer-events-none text-[#959595] to a -->
+        <a class="group hidden sm:flex gap-2 items-center hover:text-colored" href="">
+            <p class="text-regular" href="">Наступна сторінка</p>
+            <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M1 11.9561L22.2587 12.0016M22.2587 12.0016L11.6067 1.34961M22.2587 12.0016L11.6521 22.6082"
+                     stroke-width="2" />
+            </svg>
+        </a>
+    </div>

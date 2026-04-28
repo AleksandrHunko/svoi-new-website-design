@@ -1,7 +1,7 @@
 {% extends "templates/layouts/master.njk" %}
 
 {% block header %}
-<header class="bg-colored px-4 lg:px-[6%] xl:px-[8%] 2xl:px-[10%] py-8">
+<header class="bg-colored">
     <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
         <div class="flex flex-col-reverse md:flex-row gap-4 w-full">
             <div class="flex-3">
@@ -13,6 +13,12 @@
                 <img class="block max-w-[200px] max-h-full object-contain" src="/img/logo.png" alt="">
             </div>
         </div>
+        {% set informers = [
+            { type: 'number', value: '238км²', label: 'Площа ТГ' },
+            { type: 'number', value: '29', label: 'Наслених пунктів' },
+            { type: 'number', value: '12 760', label: 'Населення' },
+            { type: 'link', label: 'Електронна черга', url: '#', icon: 'queue' }
+        ] %}
         {% include "templates/components/informers.njk" %}
     </div>
 </header>
