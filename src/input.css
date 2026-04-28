@@ -21,6 +21,9 @@
 
 @import "tailwindcss";
 
+@custom-variant view-grid (&:where(.view-grid *, .view-grid));
+@custom-variant view-list (&:where(.view-list *, .view-list));
+
 @theme {
     --font-sans: "e-ukraine", "sans-serif";
 }
@@ -237,32 +240,17 @@
         @apply absolute right-0 top-8 h-5
     }
 
-    .bg-colored {
-      background: var(--theme-bg-20);
-      color: var(--theme-text);
-    }
-
-    .bg-colored-80 {
-        background: var(--theme-bg-80);
-        color: var(--theme-text); 
-    }
 
     .bg-remove {
         background: transparent;
     }
 
-    .hover\:bg-colored:hover {
-        background: var(--theme-bg-80);
-        color: var(--theme-text);
-        transition: all 0.3s ease-in-out; 
-    }
-
     .bg-colored svg .stroke,
-    .hover\:bg-colored:hover svg .stroke {
+    .hover\:bg-colored-80:hover svg .stroke {
         stroke: var(--theme-text);
     }
     .bg-colored svg .fill,
-    .hover\:bg-colored:hover svg .fill {
+    .hover\:bg-colored-80:hover svg .fill {
         fill: var(--theme-text);
     }
 
@@ -273,9 +261,6 @@
         stroke: var(--theme-text-80, white);
     }
 
-    .hover\:text-colored:hover {
-        @apply hover:text-(--theme-bg-svg,var(--theme-bg-80)) transition-colors
-    }
 
     .hover-underline-slide {
         @apply relative inline-block pb-1 text-(--theme-text) 
@@ -285,12 +270,12 @@
         hover:after:w-full;
     }
     svg:hover .stroke,
-    .hover\:bg-colored:hover .stroke,
+    .hover\:bg-colored-80:hover .stroke,
     .button-transparent:hover .stroke  {
         stroke: var(--theme-bg-svg, var(--theme-bg-80));
     }
     svg:hover .fill,
-    .hover\:bg-colored:hover .fill,
+    .hover\:bg-colored-80:hover .fill,
     .button-transparent:hover .fill {
         fill: var(--theme-bg-svg, var(--theme-bg-80));
     }
@@ -355,6 +340,22 @@
 
 }
 
+@utility bg-colored {
+    background: var(--theme-bg-20);
+    color: var(--theme-text);
+}
+
+@utility bg-colored-80 {
+    background: var(--theme-bg-80);
+    color: var(--theme-text);
+    transition: all 0.3s ease-in-out;
+}
+
+@utility text-colored {
+    color: var(--theme-bg-svg, var(--theme-bg-80));
+    transition: color 0.15s ease;
+}
+
 @layer components {
     .section-wrapper {
         @apply w-full px-4 md:px-8 py-8 mx-auto xl:py-16 max-w-[1440px];
@@ -399,7 +400,7 @@
     }
 
     .button-black {
-        @apply hover:bg-(--theme-bg-80) hover:text-(--theme-text) transition-colors 
+        @apply hover:bg-colored-80 hover:text-(--theme-text) transition-colors 
         text-[13px]/[18px] md:text-[16px]/[28px] bg-black text-white font-light rounded-4xl px-5 py-3
     }
 
