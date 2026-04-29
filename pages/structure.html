@@ -1,0 +1,155 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Муніципалітет" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <h1 class="text-biggest mb-10">Муніципалітет</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-colored flex flex-col rounded-3xl p-8">
+            <div class="flex justify-between items-start gap-2 mb-8">
+                <h3 class="text-big">Чорноморська міська рада Одеського району Одеської області</h3>
+                <img class="pointer-events-none w-12 h-auto" src="/img/material-design/building.svg" alt="">
+            </div>
+            <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+        </div>
+        <div class="bg-colored flex flex-col rounded-3xl p-8">
+            <div class="flex justify-between items-start gap-2 mb-8">
+                <h3 class="text-big">Центр надання адмінпослуг</h3>
+                <img class="pointer-events-none w-12 h-auto" src="/img/material-design/file-shield.svg" alt="">
+            </div>
+            <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+        </div>
+        <div class="bg-colored flex flex-col rounded-3xl p-8">
+            <div class="flex justify-between items-start gap-2 mb-8">
+                <h3 class="text-big">Інші заклади громади</h3>
+                <img class="pointer-events-none w-12 h-auto" src="/img/material-design/heart-hexagon.svg" alt="">
+            </div>
+            <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+        </div>
+        <div class="bg-colored hidden md:flex lg:hidden justify-center items-center rounded-3xl p-8">
+            <img class="w-1/3 h-auto" src="/img/logo.png" alt="">
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <h2 class="text-biggest mb-8 pb-8 border-b-2 border-[#eaeaea]">Підрозділи муніципалітету</h2>
+    <div class="flex flex-col md:flex-row gap-8 mt-8 pb-8 border-b-2 border-[#eaeaea]">
+        <div class="flex-1 shrink-0">
+            <div class="w-full sm:w-2/3 md:w-full aspect-square overflow-hidden rounded-3xl bg-colored mb-4">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="text-big mb-4">КУШНІРЕНКО НАТАЛЯ ВІКТОРІВНА</h3>
+            <p class="text-regular">Керуюча справами</p>
+        </div>
+        <div class="flex-3 shrink-0">
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Загальний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-8 mt-8 pb-8 border-b-2 border-[#eaeaea]">
+        <div class="flex-1 shrink-0">
+            <div class="w-full sm:w-2/3 md:w-full aspect-square overflow-hidden rounded-3xl bg-colored mb-4">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="text-big mb-4">КУШНІРЕНКО НАТАЛЯ ВІКТОРІВНА</h3>
+            <p class="text-regular">Керуюча справами</p>
+        </div>
+        <div class="flex-3 shrink-0">
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Загальний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col md:flex-row gap-8 mt-8 pb-8 border-b-2 border-[#eaeaea]">
+        <div class="flex-1 shrink-0">
+            <!-- placeholder when no img -->
+            <div class="flex justify-center items-center w-full sm:w-2/3 md:w-full aspect-square overflow-hidden rounded-3xl bg-colored mb-4">
+                <img class="w-1/2 h-auto" src="/img/material-design/gerb-filler.svg" alt="">
+            </div>
+            <!--  -->
+            <h3 class="text-big mb-4">КУШНІРЕНКО НАТАЛЯ ВІКТОРІВНА</h3>
+            <p class="text-regular">Керуюча справами</p>
+        </div>
+        <div class="flex-3 shrink-0">
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Загальний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+            <a href="" class="block relative bg-colored hover:bg-colored-80 rounded-3xl pl-4 pr-16 py-3 mb-3">
+                <p class="text-regular">Архівний відділ виконавчого комітету Чорноморської міської ради Одеського району Одеської області</p>
+                <img class="absolute top-1/2 -translate-y-1/2 right-4 w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
