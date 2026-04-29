@@ -1,0 +1,102 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Якість повітря" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+  <section class="section-wrapper">
+    <h2 class="text-biggest mb-10">Якість повітря</h2>
+
+    <div class="relative w-fit mb-8">
+        <select class="eco-station appearance-none cursor-pointer pr-6 text-custom-20px focus:outline-none" name="eco-station">
+        </select>
+        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path d="M0 0h10L5 6z"></path>
+        </svg>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex-1 shrink-0 bg-colored rounded-3xl py-8 px-10">
+            <h4 class="text-medium mb-6">Дані оновлено</h4>
+            <p class="text-custom-18px pb-8 mb-8 border-b-2" id="last-updated-value"></p>
+            <div class="flex justify-between mb-8">
+                <h4 class="text-medium">Населений пункт</h4>
+                <p class="text-custom-18px" id="city-name-value"></p>
+            </div>
+            <div class="flex justify-between pb-8 mb-4 border-b-2">
+                <h4 class="text-medium">Назва Станції</h4>
+                <p class="text-custom-18px" id="station-name-value"></p>
+            </div>
+            <span class="text-small">Дані надано платформою <a href="" target="_blank" id="provider-value" style="text-decoration: underline;"></a></span>
+
+        </div>
+        <div class="flex-1 flex flex-col gap-4 shrink-0 bg-colored py-8 px-10 rounded-3xl">
+            <div class="flex justify-between items-end border-b-2 pb-4">
+                <p class="text-custom-18px">Індекс якості повітря</p>
+                <div class="text-custom-18px flex items-center gap-2" id="aqi-value">
+                    <div class="circle w-5 h-5 rounded-full shrink-0"></div>
+                    <span></span>
+                </div>
+            </div>
+            <div class="flex justify-between items-end border-b-2 pb-4">
+                <p class="text-custom-18px">Температура</p>
+                <p class="text-custom-18px" id="temperature-value"></p>
+            </div>
+            <div class="flex justify-between items-end border-b-2 pb-4">
+                <p class="text-custom-18px">PM2.5</p>
+                <p class="text-custom-18px" id="pm25-value"></p>
+            </div>
+            <div class="flex justify-between items-end border-b-2 pb-4">
+                <p class="text-custom-18px">PM10</p>
+                <p class="text-custom-18px" id="pm10-value"></p>
+            </div>
+            <div class="flex justify-between items-end border-b-2 pb-4">
+                <p class="text-custom-18px">Вологість повітря</p>
+                <p class="text-custom-18px" id="humidity-value"></p>
+            </div>
+            <div class="flex justify-between items-end pb-4">
+                <p class="text-custom-18px">Атмосферний тиск</p>
+                <p class="text-custom-18px" id="pressure-value"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper">
+<h3 class="text-medium mb-8">Індекс якості повітря</h3>
+<p class="text-regular font-light mb-4">AQI (Air Quality Index) є індексом якості повітря, який використовується для вимірювання рівня забруднення повітря в міських та промислових районах.</p>
+<p class="text-regular font-light mb-4">AQI оцінює рівень забруднення повітря на основі кількох параметрів, таких як концентрація пилу, диму, газів та інших речовин.</p>
+<p class="text-regular font-light mb-4">PM2.5 є однією з головних складових AQI, що вимірює концентрацію часток, розміром менше 2,5 мікрометрів, в повітрі. Ці частки можуть бути дуже шкідливі для здоров'я, оскільки вони можуть проникнути глибоко в легені та спричинити різноманітні захворювання, включаючи серцево-судинні та дихальні захворювання.</p>
+<p class="text-regular font-light mb-4">AQI PM2.5 вимірюється в мікрограмах на кубічний метр повітря. Чим вище рівень AQI PM2.5, тим більше забруднення повітря та більше можливостей для появи проблем зі здоров'ям.</p>
+
+<h3 class="text-medium my-8">Рівні індексу якості</h3>
+
+<p class="text-regular font-light mb-4">Індекс якості повітря (AQI) містить шкалу з рівнями забруднення повітря, яка зазвичай складається з шести категорій.</p>
+<p class="text-regular font-light mb-4">Рівні забруднення повітря та їх значення можуть відрізнятися в залежності від країни або регіону, але загальні рівні і їх вплив на здоров'я людини можуть бути наступні:</p><br>
+<p class="text-regular font-light mb-4">• Хороша якість повітря (AQI 0-50): Вважається безпечним для всіх груп людей, включаючи тих, хто має проблеми з диханням або серцем.</p><br>
+<p class="text-regular font-light mb-4">• Задовільна якість повітря (AQI 51-100): Може бути легкий дискомфорт для людей, які мають проблеми з диханням або серцем.</p><br>
+<p class="text-regular font-light mb-4">• Погана якість повітря (AQI 101-150): Може викликати проблеми зі здоров'ям для осіб з дихальними та серцевими захворюваннями, дітей та літніх людей.</p><br>
+<p class="text-regular font-light mb-4">• Дуже погана якість повітря (AQI 151-200): Може викликати серйозні проблеми зі здоров'ям, особливо для осіб з дихальними та серцевими захворюваннями, дітей та літніх людей.</p><br>
+<p class="text-regular font-light mb-4">• Небезпечна якість повітря (AQI 201-300): Може викликати негативний вплив на здоров'я, особливо для осіб з дихальними та серцевими захворюваннями, дітей та літніх людей.</p><br>
+<p class="text-regular font-light mb-4">• Надзвичайно небезпечна якість повітря (AQI 301-500): Може призвести до негайних проблем зі здоров'ям та загрожувати життю для всіх груп людей.</p><br>
+</section>
+{% set community_id = 137 %}
+<script type="module">
+  import { initEcomonitoring } from '/js/ecomonitoring.js';
+  initEcomonitoring({{ community_id }});
+</script>
+
+{% endblock %}
