@@ -1,12 +1,11 @@
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import nunjucks from "./vite-plugin-nunjucks.js";
-import data from "./templates/data.js";
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    nunjucks({ variables: data }),
+    nunjucks(),
     {
       name: "fix-font-paths",
       generateBundle(_, bundle) {
