@@ -1,0 +1,75 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col-reverse md:flex-row gap-8 w-full">
+            <h1 class="text-biggest">Виборчий округ:<br>Округ №1</h1>
+            <img class="w-24 h-auto m-auto md:m-0 shrink-0" src="/img/logo.png" alt="">
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Виборчі округи", url: "/pages/constituency" },
+{ title: "Виборчий округ: Округ №1" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    {% set persons = [
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Книш Тетяна Володимирівна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Книш Тетяна Володимирівна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Венгріна Олена Петрівна", url: "" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Книш Тетяна Володимирівна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Книш Тетяна Володимирівна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Сарай Василь Миколайович", url: "", image: "/img/photo-1.jpg" }
+    ] %}
+    {% include "templates/components/photo-grid.njk" %}
+</section>
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <h2 class="text-biggest mb-10">
+        Публічна інформація
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="#" class="relative w-full hover:text-colored">
+            <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-2 w-40">
+                11.04.2025
+            </p>
+            <h3 class="w-full text-big border-t-2 mt-2 pt-4 pr-8 md:pr-0">
+                Відновлення та відбудова
+            </h3>
+            <img class="md:hidden absolute w-4 h-4 bottom-0 right-2 pointer-events-none" src="/img/material-design/link-inner.svg" alt="">
+        </a>
+        <a href="#" class="relative w-full hover:text-colored">
+            <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-2 w-40">
+                11.04.2025
+            </p>
+            <h3 class="w-full text-big border-t-2 mt-2 pt-4 pr-8 md:pr-0">
+                Сайт КМУ
+            </h3>
+            <img class="md:hidden absolute w-4 h-4 bottom-0 right-2 pointer-events-none" src="/img/material-design/link-inner.svg" alt="">
+        </a>
+        <a class="col-start-1 md:col-start-3 row-start-1 bg-colored rounded-3xl relative hover:bg-colored-80 p-10 pr-16" href="#">
+            <img class="w-28 h-auto mb-16 pointer-events-none" src="/img/material-design/decisions-img.svg" alt="">
+            <h3 class="text-medium">
+                Положення про Виконком та Регламент
+            </h3>
+            <img class="absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+        </a>
+    </div>
+</section>
+
+{% endblock %}

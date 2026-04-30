@@ -99,56 +99,17 @@
 {% block content %}
 
 <section class="section-wrapper">
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored rounded-3xl w-full aspect-square flex items-center justify-center mb-4 overflow-hidden">
-                <img class="w-1/2 h-auto object-cover" src="/img/material-design/gerb-filler.svg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
-                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-        <a class="group block shrink-0" href="">
-            <div class="bg-colored rounded-3xl w-full aspect-square flex items-center justify-center mb-4 overflow-hidden">
-                <img class="w-1/2 h-auto object-cover" src="/img/material-design/gerb-filler.svg" alt="">
-            </div>
-            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
-        </a>
-    </div>
+    {% set persons = [
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "", image: "/img/photo-1.jpg" },
+        { name: "Солоха Оксана Сергіївна", url: "" }
+    ] %}
+    {% include "templates/components/photo-grid.njk" %}
 </section>
 
 {% endblock %}
