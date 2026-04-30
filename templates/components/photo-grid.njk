@@ -1,0 +1,18 @@
+{# Expects: persons = [{ name, url, image, description }] — image and description are optional #}
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    {% for person in persons %}
+    <a class="group block shrink-0" href="{{ person.url or '' }}">
+        {% if person.image %}
+        <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+            <img class="w-full h-full object-cover" src="{{ person.image }}" alt="">
+        </div>
+        {% else %}
+        <div class="bg-colored rounded-3xl w-full aspect-square flex items-center justify-center mb-4 overflow-hidden">
+            <img class="w-1/2 h-auto object-cover" src="/img/material-design/gerb-filler.svg" alt="">
+        </div>
+        {% endif %}
+        <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">{{ person.name }}</h3>
+        {% if person.description %}<p class="text-regular font-light mt-2">{{ person.description }}</p>{% endif %}
+    </a>
+    {% endfor %}
+</div>
