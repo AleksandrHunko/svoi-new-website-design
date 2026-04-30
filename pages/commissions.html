@@ -1,0 +1,59 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col-reverse md:flex-row gap-8 w-full">
+            <h1 class="text-biggest">Депутатські комісії</h1>
+            <img class="w-24 h-auto m-auto" src="/img/logo.png" alt="">
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Депутатський корпус", url: "/pages/persons" },
+{ title: "Депутатські комісії" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="border-2 border-(--theme-bg-svg,var(--theme-bg-80)) rounded-2xl overflow-hidden w-full md:w-3/4 lg:w-2/3">
+        <div class="grid grid-cols-[1fr_auto]">
+
+            <div class="px-6 py-5 border-b-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                <span class="text-medium font-medium">Назва комісії</span>
+            </div>
+            <div class="px-6 py-5 border-b-2 border-(--theme-bg-svg,var(--theme-bg-80)) w-32 lg:w-auto">
+                <span class="text-medium font-medium">Кількість депутатів</span>
+            </div>
+
+            <div class="px-6 py-5 border-b-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                <a href="#" class="underline">Постійна комісія з питань депутатської діяльності, регламенту, законності, правопорядку та запобігання корупції</a>
+            </div>
+            <div class="px-6 py-5 border-b-2 border-(--theme-bg-svg,var(--theme-bg-80)) text-center">16</div>
+
+            <div class="px-6 py-5 border-b-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                <a href="#" class="underline">Постійна комісія з питань освіти, науки, культури, спорту, молоді та туризму</a>
+            </div>
+            <div class="px-6 py-5 border-b-2 border-(--theme-bg-svg,var(--theme-bg-80)) text-center">16</div>
+
+            <!-- Last row has no border!! -->
+            <div class="px-6 py-5 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                <a href="#" class="underline">Постійна комісія з питань соціального та економічного розвитку, бюджету і фінансів</a>
+            </div>
+            <div class="px-6 py-5 text-center">7</div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "templates/layouts/master.njk" %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Депутатський корпус", url: "/pages/persons" },
+{ title: "Харченко Регіна Владиславівна" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <h1 class="text-biggest mb-10">Харченко Регіна Владиславівна</h1>
+    <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1 shrink-0">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h2 class="text-big mb-4">Секретар Запорізької міської ради</h2>
+            <p class="text-regular font-light mb-3"><span class="font-medium">Телефон:</span> +380731787778</p>
+            <p class="text-regular font-light mb-3"><span class="font-medium">Електронна пошта:</span> 4380784@gmail.com
+            </p>
+            <div class="accordion-menu flex-1 flex flex-col transition-[max-height] duration-300 mt-8">
+                <div
+                    class="click-open accordion-mobile-only cursor-pointer md:cursor-auto flex justify-between items-center group open">
+                    <h2 class="text-big mb-2">
+                        Графік <span class="hidden md:inline">прийому громадян</span>:
+                    </h2>
+                    <div class="relative block md:hidden w-6 h-6 mr-2">
+                        <span
+                            class="absolute top-1/2 left-1/2 w-6 h-0.5 bg-(--theme-text) -translate-x-1/2 -translate-y-1/2"></span>
+                        <span
+                            class="absolute top-1/2 left-1/2 w-6 h-0.5 bg-(--theme-text) rotate-90 -translate-x-1/2 -translate-y-1/2 block group-[.open]:hidden"></span>
+                    </div>
+                </div>
+                <div class="flex bg-colored flex-wrap gap-1 border-y-2 p-3 my-4">
+                    <p class="flex-1 text-regular font-light">
+                        Понеділок
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        09:00 - 18:00
+                    </p>
+                </div>
+                <div class="flex">
+                    <p class="flex-1 shrink-0"></p>
+                    <div class="flex-1 flex gap-2 items-center -ml-2">
+                        <img class="w-7 h-7 pointer-events-none" src="/img/material-design/coffee-cup.svg" alt="">
+
+                        <p class="text-small font-light">
+                            13:00 - 13:45
+                        </p>
+                    </div>
+                </div>
+                <div class="flex bg-colored flex-wrap gap-1 border-y-2 p-3 my-4">
+                    <p class="flex-1 text-regular font-light">
+                        Вівторок
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        09:00 - 18:00
+                    </p>
+                </div>
+                <div class="flex">
+                    <p class="flex-1 shrink-0"></p>
+                    <div class="flex-1 flex gap-2 items-center -ml-2">
+                        <img class="w-7 h-7 pointer-events-none" src="/img/material-design/coffee-cup.svg" alt="">
+                        <p class="text-small font-light">
+                            13:00 - 13:45
+                        </p>
+                    </div>
+                </div>
+                <div class="flex bg-colored flex-wrap gap-1 border-y-2 p-3 my-4">
+                    <p class="flex-1 text-regular font-light">
+                        Середа
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        09:00 - 18:00
+                    </p>
+                </div>
+                <div class="flex">
+                    <p class="flex-1 shrink-0"></p>
+                    <div class="flex-1 flex gap-2 items-center -ml-2">
+                        <img class="w-7 h-7 pointer-events-none" src="/img/material-design/coffee-cup.svg" alt="">
+                        <p class="text-small font-light">
+                            13:00 - 13:45
+                        </p>
+                    </div>
+                </div>
+                <div class="flex bg-colored flex-wrap gap-1 border-y-2 p-3 my-4">
+                    <p class="flex-1 text-regular font-light">
+                        Четвер
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        09:00 - 18:00
+                    </p>
+                </div>
+                <div class="flex">
+                    <p class="flex-1 shrink-0"></p>
+                    <div class="flex-1 flex gap-2 items-center -ml-2">
+                        <img class="w-7 h-7 pointer-events-none" src="/img/material-design/coffee-cup.svg" alt="">
+                        <p class="text-small font-light">
+                            13:00 - 13:45
+                        </p>
+                    </div>
+                </div>
+                <div class="flex bg-colored flex-wrap gap-1 border-y-2 p-3 my-4">
+                    <p class="flex-1 text-regular font-light">
+                        П`ятниця
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        09:00 - 16:45
+                    </p>
+                </div>
+                <div class="flex">
+                    <p class="flex-1 shrink-0"></p>
+                    <div class="flex-1 flex gap-2 items-center -ml-2">
+                        <img class="w-7 h-7 pointer-events-none" src="/img/material-design/coffee-cup.svg" alt="">
+                        <p class="text-small font-light">
+                            13:00 - 13:45
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-1 px-3 my-3">
+                    <p class="flex-1 text-regular font-light">
+                        Субота
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        Вихідний
+                    </p>
+                </div>
+                <div class="flex flex-wrap gap-1 px-3 my-3">
+                    <p class="flex-1 text-regular font-light">
+                        Неділя
+                    </p>
+                    <p class="flex-1 text-regular font-light">
+                        Вихідний
+                    </p>
+                </div>
+
+            </div>
+            <a class="block w-fit button-transparent mt-6 mx-auto" href="">Записатися на прийом</a>
+        </div>
+        <div class="flex-1 lg:flex-2 shrink-0 font-regular font-light">
+            <p class="font-medium">Депутатська фракція:</p>
+            <a class="underline" href="">Позафракційні</a>
+            <p class="mt-6 font-medium">Виборчий округ:</p>
+            <a class="underline" href="">Округ № 32 сел. Олександрівка (див. посилання)</a>
+            <p class="mt-6 font-medium">Комісія:</p>
+            <a class="underline" href="">Постійна комісія з питань підтримки підприємницької діяльності, торгівлі та побутового обслуговування</a>
+            <p class="my-6 pb-6 border-b-2 border-black font-medium">Округ №32</p>
+            <p>Відомість Харченко отримала завдяки обранню на посаду секретаря Запорізької міської ради. Сесія та обрання відбувались зі значними порушеннями законодавства[6], на які першим звернув увагу Запорізький центр розслідувань. Тоді ж, 24 квітня, минулий секретар Анатолій Куртєв подав позов до адміністративного суду проти Запорізької міської ради щодо заборони вчинення певних дій.[7] Але позов було повернуто позивачу.</p>
+            <p>Внаслідок обрання Харченко на посаду, її було виключено з депутатської фракції "СЛУГА НАРОДУ" в Запорізькій міській раді[8]. а депутати що входять у группу впливу "Метінвест" отримали попередження від обласної партійної організації.</p>
+            <p>Відомість Харченко отримала завдяки обранню на посаду секретаря Запорізької міської ради. Сесія та обрання відбувались зі значними порушеннями законодавства[6], на які першим звернув увагу Запорізький центр розслідувань. Тоді ж, 24 квітня, минулий секретар Анатолій Куртєв подав позов до адміністративного суду проти Запорізької міської ради щодо заборони вчинення певних дій.[7] Але позов було повернуто позивачу.</p>
+            <p>Внаслідок обрання Харченко на посаду, її було виключено з депутатської фракції "СЛУГА НАРОДУ" в Запорізькій міській раді[8]. а депутати що входять у группу впливу "Метінвест" отримали попередження від обласної партійної організації.</p>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
