@@ -1,0 +1,154 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-8 w-full">
+            <h1 class="text-biggest">Депутатський корпус</h1>
+        </div>
+        <div class="w-full flex justify-start flex-wrap gap-x-3 gap-y-4 my-8">
+            {% set informers = [
+            { type: 'number', value: '24', label: 'К-сть депутатів' },
+            { type: 'text-link', url: '/pages/fractions', value: '5', label: 'Депутатські фракції' },
+            { type: 'text-link', url: '/pages/constituency', value: '6', label: 'Виборчі округи' },
+            { type: 'text-link', url: '/pages/comissions', value: '8', label: 'Депутатські комісії' }
+            ] %}
+            {% include "templates/components/informers.njk" %}
+        </div>
+        <form action="" class="filter-form">
+            <div class="flex flex-wrap gap-2 justify-between items-start w-full">
+                <div class="relative w-3/4 sm:w-2/3 lg:w-sm mb-4">
+                    <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                        placeholder="Пошук">
+                    <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+                </div>
+                <input type="checkbox" id="filter-toggle" class="peer hidden" />
+                <label for="filter-toggle" id="filter-button" role="button" aria-haspopup="true"
+                    class="cursor-pointer">
+                    <svg class="filter-closed cursor-pointer md:hidden" width="37" height="33" viewBox="0 0 37 33"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="stroke"
+                            d="M1.66699 4.33268C1.66699 3.39926 1.66699 2.93255 1.84865 2.57603C2.00844 2.26243 2.2634 2.00746 2.57701 1.84767C2.93353 1.66602 3.40024 1.66602 4.33366 1.66602H32.3337C33.2671 1.66602 33.7338 1.66602 34.0903 1.84767C34.4039 2.00746 34.6589 2.26243 34.8187 2.57603C35.0003 2.93255 35.0003 3.39926 35.0003 4.33268V5.44834C35.0003 5.89633 35.0003 6.12033 34.9456 6.32862C34.8971 6.5132 34.8172 6.68807 34.7095 6.84562C34.588 7.0234 34.4187 7.1701 34.0801 7.46351L23.4205 16.7019C23.082 16.9953 22.9127 17.142 22.7911 17.3197C22.6834 17.4773 22.6036 17.6522 22.5551 17.8367C22.5003 18.045 22.5003 18.269 22.5003 18.717V27.43C22.5003 27.7559 22.5003 27.9189 22.4478 28.0598C22.4013 28.1843 22.3258 28.2959 22.2274 28.3852C22.1161 28.4864 21.9648 28.5469 21.6622 28.6679L15.9955 30.9346C15.3829 31.1796 15.0767 31.3022 14.8308 31.2511C14.6158 31.2064 14.4271 31.0786 14.3057 30.8956C14.167 30.6863 14.167 30.3564 14.167 29.6966V18.717C14.167 18.269 14.167 18.045 14.1122 17.8367C14.0637 17.6522 13.9839 17.4773 13.8762 17.3197C13.7546 17.142 13.5854 16.9953 13.2468 16.7019L2.58718 7.46351C2.24863 7.1701 2.07936 7.0234 1.95781 6.84562C1.8501 6.68807 1.77025 6.5132 1.72174 6.32862C1.66699 6.12033 1.66699 5.89633 1.66699 5.44834V4.33268Z"
+                            stroke="black" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="filter-open hidden cursor-pointer md:hidden" width="27" height="27"
+                        viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="fill"
+                            d="M24.017 26.4289L13.2144 15.6093L2.41189 26.4289L0 24.017L10.8195 13.2144L0 2.41189L2.41189 0L13.2144 10.8195L24.017 0.0169855L26.4119 2.41189L15.6093 13.2144L26.4119 24.017L24.017 26.4289Z"
+                            fill="black" />
+                    </svg>
+                </label>
+                <div class="hidden peer-checked:flex md:flex flex-col md:flex-row flex-wrap gap-6 md:gap-8 w-full items-center md:w-auto">
+                    <div class="relative w-full md:w-fit overflow-hidden">
+                        <select class="eco-station appearance-none cursor-pointer pr-6 text-regular md:text-custom-20px focus:outline-none" name="eco-station">
+                            <option value="" selected disabled>Депутатська фракція</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+
+                    <div class="relative w-full md:w-fit overflow-hidden">
+                        <select class="eco-station appearance-none cursor-pointer pr-6 text-regular md:text-custom-20px focus:outline-none" name="eco-station">
+                            <option value="" selected disabled>Виборчий округ</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+
+                    <div class="relative w-full md:w-fit overflow-hidden">
+                        <select class="eco-station appearance-none cursor-pointer pr-6 text-regular md:text-custom-20px focus:outline-none" name="eco-station">
+                            <option value="" selected disabled>Комісія</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                    
+                    <button class="hidden md:block button-black text-regular cursor-pointer px-10"
+                        type="submit">Застосувати</button>
+                </div>
+                <div class="hidden peer-checked:flex flex-col md:flex md:flex-row md:flex-wrap gap-12 mt-8 w-full">
+                    
+                <button class="md:hidden button-black text-regular cursor-pointer mt-4 w-full px-10"
+                    type="submit">Застосувати</button>
+            </div>
+        </form>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Депутатський корпус" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored rounded-3xl w-full aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img class="w-1/2 h-auto object-cover" src="/img/material-design/gerb-filler.svg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored w-full aspect-square rounded-3xl mb-4 overflow-hidden">
+                <img class="w-full h-full object-cover" src="/img/photo-1.jpg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+        <a class="group block shrink-0" href="">
+            <div class="bg-colored rounded-3xl w-full aspect-square flex items-center justify-center mb-4 overflow-hidden">
+                <img class="w-1/2 h-auto object-cover" src="/img/material-design/gerb-filler.svg" alt="">
+            </div>
+            <h3 class="w-fit text-regular md:text-custom-20px border-b-2 border-transparent group-hover:border-black">Солоха Оксана Сергіївна</h3>
+        </a>
+    </div>
+</section>
+
+{% endblock %}
