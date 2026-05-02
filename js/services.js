@@ -5,7 +5,6 @@ export function initServices() {
   const listEl    = document.getElementById('services-list')
   const detailEl  = document.getElementById('services-detail')
   const cardsEl   = document.getElementById('services-cards')
-  const dotsEl    = document.getElementById('services-dots')
 
   if (!tabsEl) return
 
@@ -21,8 +20,8 @@ export function initServices() {
       <button
         class="services-tab shrink-0 flex items-center gap-1 pb-3 border-b-2 transition-all cursor-pointer whitespace-nowrap text-custom-20px ${
           c.id === activeTabId
-            ? 'border-black font-regular'
-            : 'border-transparent hover:border-black'
+            ? 'border-(--theme-text) font-regular'
+            : 'border-transparent hover:border-(--theme-text)'
         }"
         data-tab="${c.id}"
       >${c.label} <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg"></button>
@@ -44,8 +43,8 @@ export function initServices() {
     const cat = getActiveCategory()
     listEl.innerHTML = cat.services.map((s, i) => `
       <button
-        class="services-item flex justify-between items-start w-full font-regular cursor-pointer text-left p-4 border-b border-black/10 gap-4 transition-opacity ${
-          i === activeServiceIdx ? 'bg-white' : 'hover:bg-white'
+        class="services-item flex justify-between items-start w-full font-regular cursor-pointer text-left p-4 border-b border-(--theme-text) gap-4 transition-opacity ${
+          i === activeServiceIdx ? 'bg-white text-black' : 'hover:bg-white hover:text-black'
         }"
         data-idx="${i}"
       >
@@ -69,6 +68,7 @@ export function initServices() {
       const arrow = btn.querySelector('img')
       const active = i === activeServiceIdx
       btn.classList.toggle('bg-white', active)
+      btn.classList.toggle('text-black', active)
       arrow?.classList.toggle('invisible', !active)
     })
   }
@@ -91,7 +91,7 @@ export function initServices() {
     const cat = getActiveCategory()
     cardsEl.innerHTML = cat.services.map(s => `
       <div class="w-[92vw] md:w-auto snap-start shrink-0">
-        <div class="bg-white rounded-3xl p-6">
+        <div class="bg-white text-black rounded-3xl p-6">
           <p class="inline-block text-regular md:text-custom-18px w-auto pb-1 mb-6">${cat.label}</p>
           <h3 class="text-big mb-6">${s.title}</h3>
           <p class="text-regular font-light">${s.description}</p>

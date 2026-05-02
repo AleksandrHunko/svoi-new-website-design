@@ -6,8 +6,10 @@ export function initNav() {
 
     function updateNav() {
         const screenWidth = window.innerWidth;
+        
 
         if (screenWidth < 768) {
+            
             items.forEach(item => item.style.display = 'none');
             return;
         }

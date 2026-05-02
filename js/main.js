@@ -7,6 +7,7 @@ import { galleryInit } from './gallery.js';
 
 import { filterMenuInit } from './filter-menu.js'
 import { initAccordionMenu } from './misc-elements.js'
+import { initEcomonitoringVidget } from './ecomonitoring-vidget.js'
 
 
 window.addEventListener('load', () => {
@@ -24,6 +25,7 @@ window.addEventListener('load', () => {
   filterMenuInit();
   initAccordionMenu();
   initViewToggle()
+  initEcomonitoringVidget()
 
   document.querySelector('.copyright-year').innerHTML = `toolkit.in.ua ${new Date().getFullYear()}. Всі права захищені.`
 });
