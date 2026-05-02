@@ -17,7 +17,8 @@
             { type: 'number', value: '238км²', label: 'Площа ТГ' },
             { type: 'number', value: '29', label: 'Наслених пунктів' },
             { type: 'number', value: '12 760', label: 'Населення' },
-            { type: 'link', label: 'Електронна черга', url: '#', icon: 'queue' }
+            { type: 'link', label: 'Електронна черга', url: '#', icon: 'queue' },
+            { type: 'ecomonitoring', community_id: 3, url: '#' }
         ] %}
         {% include "templates/components/informers.njk" %}
     </div>
@@ -90,12 +91,12 @@
             <div class="flex flex-col w-72 flex-2 lg:flex-1 shrink-0">
                 <div id="services-list"></div>
                 <a href="#"
-                    class="flex items-center w-[200px] gap-2 mt-6 pb-2 border-b-2 border-transparent text-custom-18px hover:border-black">
+                    class="flex items-center w-[200px] gap-2 mt-6 pb-2 border-b-2 border-transparent text-custom-18px hover:border-(--theme-text)">
                     <p>Всі послуги</p>
                     <img class="w-5 h-5" src="/img/material-design/arrow-right.svg" alt="">
                 </a>
             </div>
-            <div id="services-detail" class="flex-2 bg-white rounded-3xl p-8"></div>
+            <div id="services-detail" class="flex-2 bg-white text-black rounded-3xl p-8"></div>
         </div>
 
         <div id="services-cards" class="md:hidden flex gap-2 overflow-x-auto snap-x scroll-smooth scrollbar-hide"></div>
