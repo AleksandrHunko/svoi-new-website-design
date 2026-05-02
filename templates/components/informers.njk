@@ -55,6 +55,32 @@
 
         {% endif %}
 
+            {# ECOMONITORING #}
+            {% if informer.type == 'ecomonitoring' %}
+                <a  href="/pages/ecomonitoring"
+                    class="ecomonitoring flex justify-between h-[138px] w-full md:w-[250px] xl:w-[264px] rounded-3xl bg-white hover:bg-colored-80 text-black px-5 py-4"
+                    data-community-id="{{ informer.community_id }}"
+                    >
+                    <div class="flex flex-col justify-between">
+                        <p class="text-small">Якість повітря</p>
+                        <div class="aqi"></div>
+                        <p class="text-regular">Погода</p>
+                    </div>
+                    <div class="flex gap-4 items-end">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <p class="text-regular font-light">Температура</p>
+                                <p class="temperature text-medium"></p>
+                            </div>
+                            <div>
+                                <p class="text-regular font-light">Вологість</p>
+                                <p class="humidity text-medium"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+
     {% endfor %}
 </div>
 
