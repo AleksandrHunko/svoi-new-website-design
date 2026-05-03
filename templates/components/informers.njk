@@ -1,4 +1,14 @@
 {# Expects variable: informers (array of informer objects) #}
+{# Optional: bigInformers (boolean) - renders taller/wider cards (165px height, 304px/264px/48%) #}
+
+{% if bigInformers %}
+    {% set _h = "h-30 sm:h-[165px]" %}
+    {% set _w = "w-full sm:w-[48%] md:w-[264px] xl:w-[304px]" %}
+{% else %}
+    {% set _h = "h-[138px]" %}
+    {% set _w = "w-[48%] md:w-[250px] xl:w-[264px]" %}
+{% endif %}
+
 <div class="w-full flex justify-start flex-wrap gap-x-3 gap-y-4 my-8">
     {% for informer in informers %}
 
@@ -7,14 +17,22 @@
             {# NUMBER #}
             {% if informer.type == 'number' and informer.value %}
                 <div
-                    class="flex flex-col justify-between items-start h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    class="flex flex-col justify-between items-start {{ _h }} {{ _w }} rounded-3xl bg-white text-black px-5 py-5"
                     >
-                    <h4 class="text-[26px]/[26px] md:text-[38px]/[38px] lg:text-[56px]/[56px]">
+                    <h4 class="{% if informer.value | length < 7 %}text-biggest{% elif informer.value | length < 10 %}text-bigger{% elif informer.value | length < 15 %}text-big{% else %}text-medium{% endif %}">
                         {{ informer.value }}
                     </h4>
-                    <p class="text-sm md:text-base">
-                        {{ informer.label }}
-                    </p>
+                    <div class="flex items-start justify-between gap-1 w-full">
+                        <p class="text-sm md:text-base flex-1">{{ informer.label }}</p>
+                        {% if informer.tooltip %}
+                        <div class="relative group/tip shrink-0">
+                            <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                            <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full right-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                                {{ informer.tooltip }}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
                 </div>
             {% endif %}
 
@@ -22,7 +40,7 @@
             {% if informer.type == 'link' %}
                 <a
                     href="{{ informer.url }}"
-                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between items-center h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between items-center {{ _h }} {{ _w }} rounded-3xl bg-white text-black px-5 py-5"
                     >
                     {% if informer.icon %}
                         <span class="material-icons py-3" style="font-size: 40px;">
@@ -39,16 +57,24 @@
             {% if informer.type == 'text-link' %}
                 <a
                     href="{{ informer.url }}"
-                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between h-[138px] w-[48%] md:w-[250px] xl:w-[264px] rounded-3xl bg-white text-black px-5 py-5"
+                    class="hover:bg-colored-80 cursor-pointer flex flex-col justify-between {{ _h }} {{ _w }} rounded-3xl bg-white text-black px-5 py-5"
                     >
-                    <h4 class="text-[26px]/[26px] md:text-[38px]/[38px] lg:text-[56px]/[56px]">
+                    <h4 class="{% if informer.value | length < 7 %}text-biggest{% elif informer.value | length < 10 %}text-bigger{% elif informer.value | length < 15 %}text-big{% else %}text-medium{% endif %}">
                         {{ informer.value }}
                     </h4>
-                    <div class="flex justify-between items-center gap-2">
-                    <p class="text-sm md:text-base">
-                        {{ informer.label }}
-                    </p>
-                    <img class="w-6 h-6" src="/img/material-design/arrow.svg">
+                    <div class="flex justify-between items-center gap-2 w-full">
+                        <p class="text-sm md:text-base flex-1">{{ informer.label }}</p>
+                        <div class="flex items-center gap-2 shrink-0">
+                            {% if informer.tooltip %}
+                            <div class="relative group/tip">
+                                <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                                <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full right-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                                    {{ informer.tooltip }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            <img class="w-6 h-6" src="/img/material-design/arrow.svg">
+                        </div>
                     </div>
                 </a>
             {% endif %}
@@ -58,7 +84,7 @@
             {# ECOMONITORING #}
             {% if informer.type == 'ecomonitoring' %}
                 <a  href="/pages/ecomonitoring"
-                    class="ecomonitoring flex justify-between h-[138px] w-full md:w-[250px] xl:w-[264px] rounded-3xl bg-white hover:bg-colored-80 text-black px-5 py-4"
+                    class="ecomonitoring flex justify-between {{ _h }} w-full md:w-[250px] xl:w-[264px] rounded-3xl bg-white hover:bg-colored-80 text-black px-5 py-4"
                     data-community-id="{{ informer.community_id }}"
                     >
                     <div class="flex flex-col justify-between">
