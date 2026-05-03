@@ -45,7 +45,7 @@
 
 {% block content %}
 
-<section class="section-wrapper border-b-2 border-[#eaeaea]">
+<section class="section-wrapper">
     <div class="flex justify-between items-end w-full mb-10">
         <h2 class="text-biggest">
             Бюджетні новини
@@ -54,76 +54,150 @@
             Всі новини
         </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <a href="#"
-            class="group bg-colored rounded-4xl relative hover:bg-colored-80 overflow-hidden">
-            <img class="w-full aspect-video object-cover mb-2"
-                src="https://storage.googleapis.com/svoi-upload/20/473341/6a5ea9e0-19ad-4854-aaa5-3576fcc31cbb.png"
-                alt="">
-            <div class="flex flex-wrap px-6 mt-6 mb-4 gap-2">
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Новини
-                </p>
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Бюджетні новини
-                </p>
-            </div>
-            <p class="text-small px-6 mb-5">
-                11/04/2025 | 18:45
-            </p>
-            <h3 class="text-medium px-6 mb-3 max-h-[70px] md:max-h-[77px] lg:max-h-[84px] overflow-hidden">
-                Презентація народної творчості відбулася в місцевому РБК
-            </h3>
-            <p class="text-regular font-light max-h-[93px] overflow-hidden px-6 mb-10">
-                Сьогоднішній захід став яскравим свідченням того, що народна творчість живе, розвивається і надихає. Ми з вами мали змогу доторкнутися до глибоких джерел нашої культури, побачити майстерність і ...
-            </p>
+    {% include "templates/components/news.njk" %}
+</section>
+<div class="bg-colored">
+    <section class="section-wrapper">
+        <h2 class="text-biggest mb-10">Виконання бюджету</h2>
+        <p>Віджет "Виконнання бюджету" підключається тут</p>
+    </section>
+</div>
+
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-10">
+        <h2 class="text-biggest">
+            Тендери
+        </h2>
+        <a class="button-transparent text-custom-18px" href="#">
+            Всі тендери
         </a>
-        <a href="#"
-            class="group bg-colored rounded-4xl relative hover:bg-colored-80 overflow-hidden">
-            <div class="w-full aspect-video bg-colored flex items-center justify-center mb-2">
-                <span class="text-bigger font-bold">УВАГА</span>
-            </div>
-            <div class="flex flex-wrap px-6 mt-6 mb-4 gap-2">
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Новини
-                </p>
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Бюджетні новини
-                </p>
-            </div>
-            <p class="text-small px-6 mb-5">
-                11/04/2025 | 18:45
-            </p>
-            <h3 class="text-medium px-6 mb-3 max-h-[70px] md:max-h-[77px] lg:max-h-[84px] overflow-hidden">
-                Оперативна інформація про виконання бюджету
-            </h3>
-            <p class="text-regular font-light max-h-[93px] overflow-hidden px-6 mb-10">
-                За січень-квітень поточного року до бюджету Чорноморської міської територіальної громади надходження склали 396,1 млн грн, що становить 106,3 % до затвердженого розпису на відповідний період. Додатково ...
-            </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a class="relative group flex flex-col" href="">
+            <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-6">11.04.2025</p>
+            <h4 class="text-big border-t-2 border-black pt-4 mb-3 pr-7">Система відеонагляду в складі</h4>
+            <p class="text-custom-18px md:text-custom-20px mb-4">Очікувана вартість: 48753 UAH</p>
+            <p class="text-regular font-light mb-3">-2025-06-30-005211-a</p>
+            <p class="text-regular font-light mb-3">Дарницька районна в місті Києві державна адміністрація</p>
+            <p class="text-regular font-light mb-3">Код ЄДРПОУ: 37388222</p>
+            <p class="text-regular font-light mb-3">Статус: завершено</p>
+            <img class="md:hidden group-hover:block absolute w-7 h-7 top-16 right-0 pointer-events-none" src="/img/material-design/link.svg" alt="">
         </a>
-        <a href="#"
-            class="group bg-colored rounded-4xl relative hover:bg-colored-80 overflow-hidden">
-            <img class="w-full aspect-video object-cover mb-2"
-                src="https://storage.googleapis.com/svoi-upload/20/451076/8f3441ec-baf6-4e44-84bc-7e9afdc48b61.jpg"
-                alt="">
-            <div class="flex flex-wrap px-6 mt-6 mb-4 gap-2">
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Новини
-                </p>
-                <p class="block bg-colored-80 group-hover:bg-colored transition-colors text-small font-light rounded-3xl py-1 px-2">
-                    Бюджетні новини
-                </p>
-            </div>
-            <p class="text-small px-6 mb-5">
-                11/04/2025 | 18:45
-            </p>
-            <h3 class="text-medium px-6 mb-3 max-h-[70px] md:max-h-[77px] lg:max-h-[84px] overflow-hidden">
-                Україна шукає шлях до інвестицій: у Києві відбулася
-            </h3>
-            <p class="text-regular font-light max-h-[93px] overflow-hidden px-6 mb-10">
-                Конференція «Будівництво та інфраструктура: ключові галузі зростання економіки», організована аналітичним центром «We Build Ukraine», об'єднала близько 20 ключових спікерів галузі, понад 100 учасників — кер ...
-            </p>
+        <a class="relative group flex flex-col" href="">
+            <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-6">11.04.2025</p>
+            <h4 class="text-big border-t-2 border-black pt-4 mb-3 pr-7">Система відеонагляду в складі</h4>
+            <p class="text-custom-18px md:text-custom-20px mb-4">Очікувана вартість: 48753 UAH</p>
+            <p class="text-regular font-light mb-3">-2025-06-30-005211-a</p>
+            <p class="text-regular font-light mb-3">Дарницька районна в місті Києві державна адміністрація</p>
+            <p class="text-regular font-light mb-3">Код ЄДРПОУ: 37388222</p>
+            <p class="text-regular font-light mb-3">Статус: завершено</p>
+            <img class="md:hidden group-hover:block absolute w-7 h-7 top-16 right-0 pointer-events-none" src="/img/material-design/link.svg" alt="">
         </a>
+        <a class="relative group flex flex-col" href="">
+            <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-6">11.04.2025</p>
+            <h4 class="text-big border-t-2 border-black pt-4 mb-3 pr-7">Система відеонагляду в складі</h4>
+            <p class="text-custom-18px md:text-custom-20px mb-4">Очікувана вартість: 48753 UAH</p>
+            <p class="text-regular font-light mb-3">-2025-06-30-005211-a</p>
+            <p class="text-regular font-light mb-3">Дарницька районна в місті Києві державна адміністрація</p>
+            <p class="text-regular font-light mb-3">Код ЄДРПОУ: 37388222</p>
+            <p class="text-regular font-light mb-3">Статус: завершено</p>
+            <img class="md:hidden group-hover:block absolute w-7 h-7 top-16 right-0 pointer-events-none" src="/img/material-design/link.svg" alt="">
+        </a>
+        <a class="relative group flex flex-col" href="">
+            <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-6">11.04.2025</p>
+            <h4 class="text-big border-t-2 border-black pt-4 mb-3 pr-7">Система відеонагляду в складі</h4>
+            <p class="text-custom-18px md:text-custom-20px mb-4">Очікувана вартість: 48753 UAH</p>
+            <p class="text-regular font-light mb-3">-2025-06-30-005211-a</p>
+            <p class="text-regular font-light mb-3">Дарницька районна в місті Києві державна адміністрація</p>
+            <p class="text-regular font-light mb-3">Код ЄДРПОУ: 37388222</p>
+            <p class="text-regular font-light mb-3">Статус: завершено</p>
+            <img class="md:hidden group-hover:block absolute w-7 h-7 top-16 right-0 pointer-events-none" src="/img/material-design/link.svg" alt="">
+        </a>
+        <a class="relative group flex flex-col" href="">
+            <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-6">11.04.2025</p>
+            <h4 class="text-big border-t-2 border-black pt-4 mb-3 pr-7">Система відеонагляду в складі</h4>
+            <p class="text-custom-18px md:text-custom-20px mb-4">Очікувана вартість: 48753 UAH</p>
+            <p class="text-regular font-light mb-3">-2025-06-30-005211-a</p>
+            <p class="text-regular font-light mb-3">Дарницька районна в місті Києві державна адміністрація</p>
+            <p class="text-regular font-light mb-3">Код ЄДРПОУ: 37388222</p>
+            <p class="text-regular font-light mb-3">Статус: завершено</p>
+            <img class="md:hidden group-hover:block absolute w-7 h-7 top-16 right-0 pointer-events-none" src="/img/material-design/link.svg" alt="">
+        </a>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <div class="w-full p-8 lg:p-10 rounded-3xl bg-colored">
+        <div class="flex justify-between items-end w-full mb-10">
+            <h2 class="text-biggest">
+                Виплати
+            </h2>
+            <a class="button-transparent text-custom-18px" href="#">
+                Повна версія бюджету
+            </a>
+        </div>
+        <div class="flex flex-col gap-12">
+            <div>
+                <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-4">11.04.2025</p>
+                <div class="flex justify-between gap-4 flex-wrap pt-3 border-t-2 border-(--theme-text)">
+                    <div class="flex gap-3 flex-wrap">
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Платник</h4>
+                            <p class="text-regular font-light">Дарницька райдержадміністрація</p>
+                        </div>
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Одержувач</h4>
+                            <p class="text-regular font-light">ГУК у м.Києвi Соломян.р-н/22030101</p>
+                        </div>
+                    </div>
+                    <p class="text-big border-2 border-(--theme-text) px-6 py-4">1816.8 грн</p>
+                </div>
+                <h4 class="text-custom-20px my-6">ПРИЗНАЧЕННЯ ПЛАТЕЖУ</h4>
+                <p class="text-regular font-light max-w-full md:max-w-3/4 lg:max-w-1/2">**;101;37388222;;Вiйськовий збiр 5% утримання з остаточного розрахунку при звiльненнi
+                        Лозового В.Б. за червень 2025р.(101 4110160 2111 Вiйськовий збiр 5% утримання з
+                        остаточного розрахунку при звiльненнi Лозового В.Б. за червень 2025р.)</p>
+            </div>
+            <div>
+                <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-4">11.04.2025</p>
+                <div class="flex justify-between gap-4 flex-wrap pt-3 border-t-2 border-(--theme-text)">
+                    <div class="flex gap-3 flex-wrap">
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Платник</h4>
+                            <p class="text-regular font-light">Дарницька райдержадміністрація</p>
+                        </div>
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Одержувач</h4>
+                            <p class="text-regular font-light">ГУК у м.Києвi Соломян.р-н/22030101</p>
+                        </div>
+                    </div>
+                    <p class="text-big border-2 border-(--theme-text) px-6 py-4">1816.8 грн</p>
+                </div>
+                <h4 class="text-custom-20px my-6">ПРИЗНАЧЕННЯ ПЛАТЕЖУ</h4>
+                <p class="text-regular font-light max-w-full md:max-w-3/4 lg:max-w-1/2">**;101;37388222;;Вiйськовий збiр 5% утримання з остаточного розрахунку при звiльненнi
+                        Лозового В.Б. за червень 2025р.(101 4110160 2111 Вiйськовий збiр 5% утримання з
+                        остаточного розрахунку при звiльненнi Лозового В.Б. за червень 2025р.)</p>
+            </div>
+            <div>
+                <p class="block w-fit bg-colored-80 text-small font-light rounded-3xl py-1 px-2 mb-4">11.04.2025</p>
+                <div class="flex justify-between gap-4 flex-wrap pt-3 border-t-2 border-(--theme-text)">
+                    <div class="flex gap-3 flex-wrap">
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Платник</h4>
+                            <p class="text-regular font-light">Дарницька райдержадміністрація</p>
+                        </div>
+                        <div class="flex-1 flex gap-3 items-center">
+                            <h4 class="text-big">Одержувач</h4>
+                            <p class="text-regular font-light">ГУК у м.Києвi Соломян.р-н/22030101</p>
+                        </div>
+                    </div>
+                    <p class="text-big border-2 border-(--theme-text) px-6 py-4">1816.8 грн</p>
+                </div>
+                <h4 class="text-custom-20px my-6">ПРИЗНАЧЕННЯ ПЛАТЕЖУ</h4>
+                <p class="text-regular font-light max-w-full md:max-w-3/4 lg:max-w-1/2">**;101;37388222;;Вiйськовий збiр 5% утримання з остаточного розрахунку при звiльненнi
+                        Лозового В.Б. за червень 2025р.(101 4110160 2111 Вiйськовий збiр 5% утримання з
+                        остаточного розрахунку при звiльненнi Лозового В.Б. за червень 2025р.)</p>
+            </div>
+        </div>
     </div>
 </section>
 
