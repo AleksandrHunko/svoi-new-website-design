@@ -1,0 +1,316 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Конткати" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <h1 class="text-biggest mb-2">Контакти</h1>
+    <p class="text-medium">Любешівської територіальної громади</p>
+    <p class="text-medium mb-10">Волинська область, Камінь-Каширський район</p>
+    <div class="flex flex-col md:flex-row gap-4">
+
+        <div class="flex-3 bg-colored rounded-3xl p-8">
+            <div class="flex flex-col sm:flex-row justify-between gap-6 pb-6 mb-6 border-b-2 border-(--theme-text)">
+                <div class="sm:max-w-1/2">
+                    <h2 class="text-custom-18px">Секретар Запорізької міської ради</h2>
+                </div>
+                <div class="text-custom-18px font-light sm:text-right">
+                    <p>Харченко Регіна Владиславівна</p>
+                    <p>+380985732131, +380630653803</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between gap-4 pb-6 mb-6 border-b-2 border-(--theme-text)">
+                <div class="sm:max-w-1/2">
+                    <h2 class="text-custom-18px">Депутат</h2>
+                </div>
+                <div class="text-custom-18px font-light sm:text-right">
+                    <p>Харченко Регіна Владиславівна</p>
+                    <p>+380985732131, +380630653803</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between gap-4 pb-6 mb-6 border-b-2 border-(--theme-text)">
+                <div class="sm:max-w-1/2">
+                    <h2 class="text-custom-18px">Перший заступник міського голови з питань діяльності виконавчих органів ради</h2>
+                </div>
+                <div class="text-custom-18px font-light sm:text-right">
+                    <p>Бугар Андрій Ігорович</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between gap-4 pb-6 mb-6 border-b-2 border-(--theme-text)">
+                <div class="sm:max-w-1/2">
+                    <h2 class="text-custom-18px">Заступник міського голови з питань діяльності виконавчих органів ради-керуючий справами виконавчого комітету Запорізької міської ради</h2>
+                </div>
+                <div class="text-custom-18px font-light sm:text-right">
+                    <p>Голтвенко Олександр Валерійович</p>
+                    <p>+380612246907</p>
+                    <p>info@zp.gov.ua</p>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-between gap-4 pb-6 mb-6 border-b-2 border-(--theme-text)">
+                <div class="sm:max-w-1/2">
+                    <h2 class="text-custom-18px">Заступник міського голови з питань діяльності виконавчих органів ради-керуючий справами виконавчого комітету Запорізької міської ради</h2>
+                </div>
+                <div class="text-custom-18px font-light sm:text-right">
+                    <p>Голтвенко Олександр Валерійович</p>
+                    <p>+380612246907</p>
+                    <p>info@zp.gov.ua</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-2 flex flex-col gap-4">
+            <div class="bg-colored rounded-3xl p-8">
+                <h3 class="text-custom-18px mb-4">Адреса:</h3>
+                <p class="text-custom-18px font-light mb-6">69105, Запоріжжя, проспект Соборний, 206</p>
+                <h3 class="text-custom-18px mb-4">Ел. пошта:</h3>
+                <p class="text-custom-18px font-light mb-6">info@zp.gov.ua,zvern@zp.gov.ua</p>
+                <div class="flex justify-between gap-2">
+                    <h3 class="text-custom-18px">Телефон:</h3>
+                    <p class="text-custom-18px font-light">Не зазначено</p>
+                </div>
+            </div>
+            <div class="bg-colored rounded-3xl p-8">
+                <h3 class="text-custom-18px mb-4">Адреса:</h3>
+                <p class="text-custom-18px font-light mb-6">69105, Запоріжжя, проспект Соборний, 206</p>
+                <h3 class="text-custom-18px mb-4">Ел. пошта:</h3>
+                <p class="text-custom-18px font-light mb-6">info@zp.gov.ua,zvern@zp.gov.ua</p>
+                <div class="flex justify-between gap-2">
+                    <h3 class="text-custom-18px">Телефон:</h3>
+                    <p class="text-custom-18px font-light">Не зазначено</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="section-wrapper">
+    <h2 class="text-biggest mb-10">Електронна приймальня</h2>
+        <div class="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16 lg:pr-16">
+            <div class="flex-1 shrink-0 w-full">
+                <form action="" method="post">
+                    <div class="relative w-full border-b-2 pb-2 mb-8">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-regular focus:outline-none">
+                            <option value="" selected disabled>Оберіть тему</option>
+                            <option value="1">Звернення</option>
+                            <option value="2">Запит на публічну інформацію</option>
+                            <option value="3">Повідомлення про корупцію</option>
+                            <option value="4">Скарга</option>
+                        </select>
+                        <svg
+                          class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4"
+                          width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+                          <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                    <div class="styled-input w-full">
+                        <input name="name" type="text" autocomplete="off" required id="cases-form-name">
+                        <label class="input-label" for="cases-form-name">
+                            <span class="input-span">ПІБ</span>
+                        </label>
+                    </div>
+                    <div class="styled-input w-full">
+                        <input
+                            name="phone"
+                            type="text"
+                            id="cases-form-phone"
+                            class="always-up"
+                            required
+                            autocomplete="off"
+                            placeholder="+38 (099) 999-99-99"
+                        >
+                        <label class="input-label" for="cases-form-phone">
+                            <span class="input-span">Телефон</span>
+                        </label>
+                    </div>
+                    <div class="styled-input w-full">
+                        <input name="email" type="email" autocomplete="off" required>
+                        <label class="input-label" for="form-application-email">
+                            <span class="input-span">Email</span>
+                        </label>
+                    </div>
+                    <div class="styled-input w-full">
+                        <input name="index" type="text" autocomplete="off" required="" id="form-applicatipn-index">
+                        <label class="input-label" for="form-application-index">
+                            <span class="input-span">Індекс</span>
+                        </label>
+                    </div>
+                    <div class="styled-input w-full">
+                        <input name="address" type="text" autocomplete="off" required id="cases-form-address">
+                        <label class="input-label" for="cases-form-address">
+                            <span class="input-span">Адреса (фактичне проживання)</span>
+                        </label>
+                    </div>
+                    <div class="relative w-full border-b-2 mt-12 mb-8 pb-2">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-regular focus:outline-none" name="answer_type" required>
+                            <option value="" selected="">Як надати відповідь?</option>
+                            <option value="1">Електронною поштою</option>
+                            <option value="2">Поштовим зв`язком</option>
+                        </select>
+                        <svg
+                          class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4"
+                          width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true">
+                          <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                    <div class="styled-textarea w-full">
+                        <textarea class="resize-y" name="text_message" type="text" autocomplete="off" required id="cases-form-text-message"></textarea>
+                        <label class="input-label" for="cases-form-text-message">
+                            <span class="input-span"></span>
+                        </label>
+                        <span class="textarea-span">Текстове звернення</span>
+                    </div>
+                    <div class="my-4 flex items-center gap-3">
+                        <input class="border-black rounded-md w-5 h-5" type="checkbox" value="1" id="allow" name="allow" checked required>
+                        <label class="text-regular font-light w-3/5" for="allow">
+                            Даю згоду на обробку персональних даних
+                        </label>
+                    </div>
+                    <br>
+                    <button class="cursor-pointer button-black text-center w-full" type="submit" class="black-button">
+                        Відправити
+                    </button>
+                </form>
+            </div>
+            <div class="px-8 lg:px-16 flex-1">
+                <div class="sticky top-2 bg-colored flex flex-col gap-2 items-center justify-between py-8 px-8 md:px-16 rounded-3xl">
+                    <h3 class="text-bigger mb-4">Структурні підрозділи та заклади</h3>
+                    <a class="button-transparent w-fit m-auto" href="">Дізнатися більше</a>
+                </div>
+            </div>
+        </div>
+</section>
+<div class="bg-colored">
+    <section class="section-wrapper">
+        <h2 class="text-biggest mb-10">Інформація про громаду (варіант без мапи)</h2> 
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="px-8 py-6 rounded-3xl bg-white text-black">
+                <p class="text-medium"><span class="text-bigger">263</span>км²</p>
+                <div class="flex items-start justify-between gap-1 mt-3">
+                    <h4 class="text-regular">Площа ТГ</h4>
+                </div>
+            </div>
+            <div class="px-8 py-6 rounded-3xl bg-white text-black">
+                <p class="text-medium"><span class="text-bigger">29</span></p>
+                <div class="flex items-start justify-between gap-1 mt-3">
+                    <h4 class="text-regular">Населених пунктів</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full right-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            До складу ТГ входить 20 сіл та 9 міст
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-8 py-6 rounded-3xl bg-white text-black">
+                <p class="text-medium"><span class="text-bigger">32.52%</span></p>
+                <div class="flex items-start justify-between gap-1 mt-3">
+                    <h4 class="text-regular">Витрати на освіту у 2025р.</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full right-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            Частка видатків на освіту від загального бюджету у 2025р.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-8 py-6 rounded-3xl bg-white text-black">
+                <p class="text-medium"><span class="text-bigger">12 760</span></p>
+                <div class="flex items-start justify-between gap-1 mt-3">
+                    <h4 class="text-regular">Населення</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full right-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            Загальна кількість населення громади
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</div>
+<section class="section-wrapper">
+    <h2 class="text-biggest mb-10">Інформація про громаду (варіант з мапою)</h2>
+    <div class="flex flex-col lg:flex-row items-start gap-10">
+        <div class="w-full lg:w-[59%] rounded-3xl overflow-hidden">
+            <div id="community-map" class="w-full h-[300px] md:h-[500px]"></div>
+        </div>
+        <div class="flex flex-col gap-8 flex-1">
+            <div>
+                <p class="text-biggest"><span>763</span><span class="text-big">км²</span></p>
+                <h4 class="text-regular mt-2">Площа ТГ</h4>
+            </div>
+            <div>
+                <p class="text-biggest">29</p>
+                <div class="flex items-center gap-3 mt-2">
+                    <h4 class="text-regular">Населених пунктів</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full left-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            До складу ТГ входить 20 сіл та 9 міст
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-biggest"><span>131</span><span class="text-big">млн</span></p>
+                <div class="flex items-center gap-3 mt-2">
+                    <h4 class="text-regular">Бюджет ТГ на 2021 рік</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full left-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            Загальний бюджет територіальної громади на 2021 рік
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-biggest">12 760</p>
+                <div class="flex items-center gap-3 mt-2">
+                    <h4 class="text-regular">Населення</h4>
+                    <div class="relative group/tip shrink-0">
+                        <button class="text-small text-white bg-black rounded-4xl pb-0.75 pt-1.25 px-2.5 cursor-pointer">i</button>
+                        <div class="absolute hidden group-hover/tip:block group-focus-within/tip:block bottom-full left-0 mb-2 bg-black/75 text-white rounded-2xl p-4 w-52 text-sm z-20 leading-snug">
+                            Загальна кількість населення громади
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55k+igZxHekBnD/Csz5V5Ri1VRN3N3EZEeFeBzGaod0g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
+    integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+></script>
+<script>
+    window.addEventListener('load', function () {
+        const mapEl = document.querySelector('#community-map');
+        if (mapEl) {
+            const map = L.map('community-map').setView([46.375, 30.73], 11);
+            L.tileLayer('https://tiles.openstreetmap.org.ua/osm/{z}/{x}/{y}.png', {
+                attribution: '<a href="https://www.minregion.gov.ua/" rel="nofollow" target="_blank">Мінрегіон</a> &copy; <a href="https://tiles.openstreetmap.org.ua/" rel="nofollow" target="_blank">OSM UA</a>'
+            }).addTo(map);
+        }
+    });
+</script>
+
+{% endblock %}
