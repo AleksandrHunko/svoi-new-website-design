@@ -1,0 +1,183 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Антикорупційна політика" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <h1 class="text-biggest mb-10">Антикорупційна політика</h1>
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-16">
+        <div class="flex-1 shrink-0 w-full">
+            <h2 class="text-big mb-8">Електронне повідомлення про корупцію</h2>
+            <form action="" method="post">
+                <div class="styled-input w-full">
+                    <input name="name" type="text" autocomplete="off" required id="anti-form-name">
+                    <label class="input-label" for="anti-form-name">
+                        <span class="input-span">ПІБ</span>
+                    </label>
+                </div>
+                <div class="styled-input w-full">
+                    <input
+                        name="phone"
+                        type="text"
+                        id="anti-form-phone"
+                        class="always-up"
+                        required
+                        autocomplete="off"
+                        placeholder="+38 (099) 999-99-99"
+                    >
+                    <label class="input-label" for="anti-form-phone">
+                        <span class="input-span">Телефон</span>
+                    </label>
+                </div>
+                <div class="styled-input w-full">
+                    <input name="email" type="email" autocomplete="off" required id="anti-form-email">
+                    <label class="input-label" for="anti-form-email">
+                        <span class="input-span">Email</span>
+                    </label>
+                </div>
+                <div class="styled-input w-full">
+                    <input name="index" type="text" autocomplete="off" required id="anti-form-index">
+                    <label class="input-label" for="anti-form-index">
+                        <span class="input-span">Індекс</span>
+                    </label>
+                </div>
+                <div class="styled-input w-full">
+                    <input name="address" type="text" autocomplete="off" required id="anti-form-address">
+                    <label class="input-label" for="anti-form-address">
+                        <span class="input-span">Адреса (фактичне проживання)</span>
+                    </label>
+                </div>
+                <div class="relative w-full border-b-2 mt-12 mb-8 pb-2">
+                    <select class="appearance-none cursor-pointer w-full pr-6 text-regular focus:outline-none" name="answer_type" required>
+                        <option value="" selected="">Вкажіть як хочете отримати відповідь</option>
+                        <option value="1">Електронною поштою</option>
+                        <option value="2">Поштовим зв`язком</option>
+                    </select>
+                    <svg
+                      class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4"
+                      width="16" height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true">
+                      <path d="M0 0h10L5 6z"></path>
+                    </svg>
+                </div>
+                <div class="styled-textarea w-full">
+                    <textarea class="resize-y" name="text_message" type="text" autocomplete="off" required id="anti-form-text-message"></textarea>
+                    <label class="input-label" for="anti-form-text-message">
+                        <span class="input-span"></span>
+                    </label>
+                    <span class="textarea-span">Текстове повідомлення</span>
+                </div>
+                <div class="my-4 flex items-center gap-3">
+                    <input class="border-black rounded-md w-5 h-5" type="checkbox" value="1" id="anti-allow" name="allow" required>
+                    <label class="text-regular font-light w-3/5" for="anti-allow">
+                        Даю згоду на обробку персональних даних
+                    </label>
+                </div>
+                <br>
+                <button class="cursor-pointer button-black text-center w-3/4" type="submit">
+                    Відправити
+                </button>
+            </form>
+        </div>
+        <div class="shrink-0">
+            <div class="sticky top-2 bg-colored rounded-3xl p-8">
+                <h3 class="text-bigger mb-2">Антикорупційний підрозділ</h3>
+                <p class="text-regular font-light mb-6">Великохутірська територіальна громада</p>
+                <div class="flex flex-col gap-4 border-t-2 border-(--theme-text) pt-6">
+                    <div>
+                        <h4 class="text-custom-18px mb-1">Адреса:</h4>
+                        <p class="text-regular font-light">Київ, проспект Соборний, 206</p>
+                    </div>
+                    <div>
+                        <h4 class="text-custom-18px mb-1">Телефон:</h4>
+                        <p class="text-regular font-light">+38044(0)57337</p>
+                    </div>
+                    <div>
+                        <h4 class="text-custom-18px mb-1">Email:</h4>
+                        <p class="text-regular font-light">ssakalosh@egap.in.ua</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/js/inputmask.min.js"></script>
+<script>
+    Inputmask("+38 (099) 999-99-99").mask("#anti-form-phone");
+</script>
+
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-10">
+        <h2 class="text-biggest">Новини</h2>
+        <a class="button-transparent text-custom-18px" href="#">Всі новини</a>
+    </div>
+    {% include "templates/components/news.njk" %}
+</section>
+
+<section class="section-wrapper">
+    <div class="flex justify-between items-end mb-10">
+        <h2 class="text-biggest">Документи</h2>
+        <a class="button-transparent text-custom-18px" href="#">Всі документи</a>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a href="#"
+                class="md:col-span-2 group bg-colored rounded-3xl p-6 flex flex-col justify-between hover:bg-colored-80">
+                <div>
+                    <span class="inline-block bg-colored-80 group-hover:bg-colored text-small rounded-xl px-3 py-1 mb-4">11.04.2025</span>
+                    <p class="text-regular md:text-custom-20px mt-2">Про затвердження змін до заходів з реалізації
+                        Програми розвитку надання соціальних послуг комунальної установи «Центр надання соціальних
+                        послуг» Гайсинської міської ради на 2023-2025 роки в новій</p>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <img class="w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+                </div>
+            </a>
+            <a href="#" class="group bg-colored rounded-3xl p-6 flex flex-col justify-between hover:bg-colored-80">
+                <div>
+                    <span class="inline-block bg-colored-80 group-hover:bg-colored text-small rounded-xl px-3 py-1 mb-4">11.04.2025</span>
+                    <p class="text-regular md:text-custom-20px mt-2">Про врегулювання питань користування складовими
+                        газорозподільної системи</p>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <img class="w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+                </div>
+            </a>
+            <a href="#" class="group bg-colored rounded-3xl p-6 flex flex-col justify-between hover:bg-colored-80">
+                <div>
+                    <span class="inline-block bg-colored-80 group-hover:bg-colored text-small rounded-xl px-3 py-1 mb-4">11.04.2025</span>
+                    <p class="text-regular md:text-custom-20px mt-2">Про внесення змін до рішення 79 сесії Гайсинської
+                        міської ради 8 скликання від 21.02.2025 року №37 «Про передачу майна»</p>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <img class="w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <div class="bg-colored rounded-3xl flex-1 flex items-center justify-center p-8 min-h-[160px]">
+                <img class="w-1/3 h-auto" src="/img/logo.png" alt="Герб громади">
+            </div>
+            <a href="#" class="group bg-colored rounded-3xl p-6 flex-1 flex flex-col justify-between hover:bg-colored-80">
+                <div>
+                    <span class="inline-block bg-colored-80 group-hover:bg-colored text-small rounded-xl px-3 py-1 mb-4">11.04.2025</span>
+                    <p class="text-regular md:text-custom-20px mt-2">Рішення виконавчого комітету від 14.04.2025 № 266
+                        «Про затвердження рішення комісії з розгляду питань щодо надання»</p>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <img class="w-8 h-8" src="/img/material-design/arrow.svg" alt="">
+                </div>
+            </a>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
