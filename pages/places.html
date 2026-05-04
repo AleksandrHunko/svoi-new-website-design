@@ -10,4 +10,68 @@
 
 {% block content %}
 
+<section class="section-wrapper">
+    <h1 class="text-biggest mb-10">Місця</h1>
+    <form class="mb-8" action="">
+        <div class="flex flex-wrap gap-4 justify-between items-start w-full">
+            <div class="relative w-full md:w-lg">
+                <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                    placeholder="Пошук">
+                <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+            </div>
+            <button class="w-full md:w-fit button-black text-regular cursor-pointer px-10"
+                    type="submit">Шукати</button>
+        </div>
+    </form>
+
+    <div class="flex flex-col gap-6 md:gap-8">
+        <div class="bg-colored hover:bg-colored-80 cursor-pointer w-full flex flex-col md:flex-row rounded-3xl overflow-hidden">
+            <div class="shrink-0 flex-1">
+                <img class="w-full aspect-video md:aspect-auto md:h-full object-cover" src="/img/cabinet-1.png" alt="">
+            </div>
+            <div class="relative shrink-0 flex-1 p-8 md:p-12">
+                <h2 class="text-bigger mb-6">Парк перемоги</h2>
+                <p class="text-regular font-light mb-8">Парк перемоги трухалий над російськими окупантами</p>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-6 pointer-events-none" src="/img/material-design/marker.svg" alt="">
+                    <p>47.65577447494613,</p>
+                    <p>35.109102129936225</p>
+                </div>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-6 pointer-events-none" src="/img/material-design/marker.svg" alt="">
+                    <p>вулиця Соборна, Миколаїв, Миколаївська область, Україна, 54000</p>
+                </div>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-5 pointer-events-none" src="/img/material-design/clock.svg" alt="">
+                    <p>10:00-17:00</p>
+                </div>
+                <img class="absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+            </div>
+        </div>
+        <div class="bg-colored hover:bg-colored-80 cursor-pointer w-full flex flex-col md:flex-row rounded-3xl overflow-hidden">
+            <div class="shrink-0 flex-1">
+                <img class="w-full aspect-video md:aspect-auto md:h-full object-cover" src="/img/cabinet-3.png" alt="">
+            </div>
+            <div class="relative shrink-0 flex-1 p-8 md:p-12">
+                <h2 class="text-bigger mb-6">Центр активності громадян</h2>
+                <p class="text-regular font-light mb-8">Центр активності громадян. Громадський HUB із вільним доступом</p>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-6 pointer-events-none" src="/img/material-design/marker.svg" alt="">
+                    <p>47.65577447494613,</p>
+                    <p>35.109102129936225</p>
+                </div>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-6 pointer-events-none" src="/img/material-design/marker.svg" alt="">
+                    <p>вул. Паркова, 10</p>
+                </div>
+                <div class="flex gap-2 my-6 text-regular">
+                    <img class="w-5 h-5 pointer-events-none" src="/img/material-design/clock.svg" alt="">
+                    <p>Відчинено цілодобово</p>
+                </div>
+                <img class="absolute bottom-4 right-4 w-8 h-8 pointer-events-none" src="/img/material-design/arrow.svg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
