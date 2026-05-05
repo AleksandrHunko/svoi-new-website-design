@@ -1,0 +1,74 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col-reverse md:flex-row gap-8 w-full">
+            <h1 class="text-biggest">Перевірка відповідно до Закону України «Про очищення влади»</h1>
+            <img class="w-24 h-auto m-auto" src="/img/logo.png" alt="">
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Депутатський корпус", url: "/pages/persons" },
+{ title: "Перевірка відповідно до Закону України «Про очищення влади»" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="overflow-x-auto">
+        <table class="border-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+            <thead class="border-b-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                <tr>
+                    <th class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Прізвище, ім'я, по батькові</th>
+                    <th class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Посилання на декларацію</th>
+                    <th class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Заява про початок перевірки</th>
+                    <th class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Повідомлення про початок перевірки</th>
+                    <th class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Повідомлення про результати перевірки</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Гагара Ганна Миколаївна</td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Декларація</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Заява</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Повідомлення</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Результати перевірки</a></td>
+                </tr>
+                <tr class="border-b-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Карась Микита Петрович</td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Декларація</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Заява</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Повідомлення</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Результати перевірки</a></td>
+                </tr>
+                <tr class="border-b-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Петренко Василь Васильович</td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Декларація</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Заява</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Повідомлення</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Результати перевірки</a></td>
+                </tr>
+                <tr class="border-b-2 border-(--theme-bg-svg,var(--theme-bg-80))">
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))">Петрусь Петро Петрович</td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Декларація</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Заява</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Повідомлення</a></td>
+                    <td class="text-regular px-3 py-2 border-r-2 border-(--theme-bg-svg,var(--theme-bg-80))"><a class="underline hover:text-colored" href="#">Результати перевірки</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}
