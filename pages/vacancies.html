@@ -1,0 +1,249 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-8 w-full">
+            <h1 class="text-biggest">Вакансії</h1>
+        </div>
+        <form action="" class="filter-form mt-8">
+            <div class="flex flex-wrap gap-2 justify-between items-start w-full">
+                <div class="relative w-3/4 sm:w-2/3 lg:w-sm mb-4">
+                    <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                        placeholder="Назва вакансії">
+                    <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-6 md:gap-8 justify-between items-center w-full">
+                <div class="flex flex-wrap gap-6 md:gap-8 items-center">
+                    <div
+                        class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="year-toggle" class="peer hidden" />
+                        <label for="year-toggle" id="year-menu-button" role="button" aria-haspopup="true"
+                            class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Рік</span>
+                            <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                                width="16" height="16" viewBox="0 0 10 6" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M0 0h10L5 6z"></path>
+                            </svg>
+                        </label>
+                        <div class="md:absolute md:-left-6 mt-2 md:w-36 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="year-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Рік">
+                                <legend class="sr-only">Рік</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2023" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2023</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2024" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2024</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="year" value="2025" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">2025</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div
+                        class="triangle-icon-context-menu relative w-full md:w-auto pb-4 md:pb-0 border-b-2 md:border-none">
+                        <input type="checkbox" id="month-toggle" class="peer hidden" />
+                        <label for="month-toggle" id="month-menu-button" role="button" aria-haspopup="true"
+                            class="block relative w-full hover:text-colored cursor-pointer">
+                            <span class="text-custom-20px pr-6">Місяць</span>
+                            <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 transition-all h-4 w-4"
+                                width="16" height="16" viewBox="0 0 10 6" fill="currentColor"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M0 0h10L5 6z"></path>
+                            </svg>
+                        </label>
+                        <div class="md:absolute md:-left-6 lg:left-0 mt-2 md:w-54 md:bg-white md:text-black md:border md:border-gray-100 md:rounded-lg md:shadow-md hidden peer-checked:block z-10"
+                            role="menu" aria-labelledby="month-menu-button">
+                            <fieldset class="p-2" role="group" aria-label="Місяць">
+                                <legend class="sr-only">Місяць</legend>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="1" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Січень</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="2" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Лютий</span>
+                                </label>
+                                <label
+                                    class="flex flex-row-reverse md:flex-row w-full justify-between md:justify-start items-center gap-2 px-4 py-2 hover:bg-colored-80 md:hover:bg-gray-100 md:rounded cursor-pointer">
+                                    <input type="checkbox" name="month" value="3" class="w-4 h-4">
+                                    <span class="text-[16px]/[24px]">Березень</span>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="relative w-full border-b-2 pb-4 md:w-auto md:border-b-0 md:pb-0">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-custom-20px focus:outline-none"
+                            name="institution">
+                            <option disabled selected>Заклад</option>
+                            <option>Міська рада</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                    <div class="relative w-full border-b-2 pb-4 md:w-auto md:border-b-0 md:pb-0">
+                        <select class="appearance-none cursor-pointer w-full pr-6 text-custom-20px focus:outline-none"
+                            name="locality">
+                            <option disabled selected>Населений пункт</option>
+                            <option>Старонововоронківськ</option>
+                        </select>
+                        <svg class="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4" width="16"
+                            height="16" viewBox="0 0 10 6" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M0 0h10L5 6z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <button class="button-black text-regular cursor-pointer px-10" type="submit">Знайти вакансію</button>
+            </div>
+        </form>
+    </div>
+</header>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Вакансії" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="flex gap-8 mb-10">
+        <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-black" href="">
+            Всі вакансії
+            <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg">
+        </a>
+        <a class="flex gap-2 items-center text-custom-18px md:text-custom-20px pb-1 border-b-2 border-transparent hover:border-black"
+            href="">
+            Актуальні вакансії
+            <img class="ml-1 w-4 h-4 rotate-90" src="/img/material-design/link-inner.svg">
+        </a>
+    </div>
+    <div class="flex flex-col md:flex-row items-start gap-4">
+        <div class="flex-3 grid grid-cols-1 sm:grid-cols-2 gap-4 shrink-0">
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+            <div class="bg-colored rounded-3xl flex flex-col p-8">
+                <p class="bg-colored-80 text-small font-light text-center rounded-xl py-1 px-3 mb-4 w-fit">
+                    11.04.2025
+                </p>
+                <h2 class="text-big mb-6">Голова громади</h2>
+                <p class="text-regular mb-4">100000 грн</p>
+                <p class="text-regular mb-4">Міськрада</p>
+                <p class="text-regular font-light mb-6">Кінцевий термін подачі: 2024-06-20 18:00:00</p>
+                <a class="block w-fit md:ml-auto mt-auto button-transparent" href="">Детальніше</a>
+            </div>
+        </div>
+        <div class="flex-1 shrink-0 bg-colored flex flex-col gap-6 items-center justify-between py-8 px-8 rounded-3xl">
+            <h2 class="text-big text-center">
+                Слідкувати за вакансіями громади
+            </h2>
+            <p class="text-small font-normal text-center">
+                Перейдіть за посиланням або наведіть камерою смартфона для того щоб отримувати у смартфоні свіжі надходження
+            </p>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/qr-sample.png"
+                alt="Слідкувати у Вайбері"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href=""
+                >
+                У Вайбері
+                <img
+                    class="inline-block w-6 h-6 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/viber.svg"
+                    alt="Слідкувати у Вайбері"
+                />
+            </a>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/qr-sample.png"
+                alt="Слідкувати у Телеграмі"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href="">
+                У Телеграмі
+                <img
+                    class="inline-block w-7 h-7 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/telegram.svg"
+                    alt="Слідкувати у Телеграмі"
+                />
+            </a>
+        </div>
+    </div>
+    {% include "templates/components/pagination.njk" %}
+</section>
+
+{% endblock %}
