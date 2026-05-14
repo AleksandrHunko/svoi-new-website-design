@@ -1,0 +1,224 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <div class="flex flex-col md:flex-row gap-8 w-full">
+            <div class="flex-2">
+                <h1 class="text-biggest mb-4">Паспорт Громади</h1>
+                <p class="text-medium">Сумська територіальна громада, Сумська область,<br>Сумський район.</p>
+            </div>
+            <div class="flex-1 mt-2 flex justify-start md:justify-end items-start">
+                <div class="flex gap-4 flex-wrap items-start">
+                    {% set mediaLinks = [
+                    { section: "Facebook", link: "https://facebook.com" },
+                    { section: "Instagram", link: "https://instagram.com" },
+                    { section: "Viber", link: "https://viber.com" }
+                    ] %}
+                    {% set size = 48 %}
+                    {% include "templates/components/media-links.njk" %}
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex justify-start flex-wrap gap-x-3 gap-y-4 my-8">
+            {% set informers = [
+            { type: 'number', value: '349', label: 'Площа ТГ', unit: 'км²', tooltip: 'Загальна площа територіальної громади' },
+            { type: 'number', value: '21', label: 'Населених пунктів', tooltip: 'Кількість населених пунктів у громаді' },
+            { type: 'number', value: '263227', label: 'Чисельність населення', tooltip: 'Загальна чисельність населення громади' },
+            { type: 'number', value: '10041', label: 'Сільське населення', tooltip: 'Чисельність сільського населення громади' }
+            ] %}
+            {% set bigInformers = true %}
+            {% include "templates/components/informers.njk" %}
+        </div>
+    </div>
+</header>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Паспорт громади" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <h2 class="text-bigger mb-6">Історія Громади</h2>
+    <div class="user-generated lg:w-3/4">
+        <p>З метою відзначення кращих молодих спеціалістів, які мають визначні досягнення та здобутки у різних сферах суспільного життя, у галузі громадської, волонтерської, наукової, творчої, соціальної діяльності та виховання активної громадянської позиції молоді, на виконання завдання 4 підпрограми 2 цільової комплексної програми «Суми – громада для молоді» на 2025-2027 роки, затвердженої наказом Сумської міської військової адміністрації від 31 грудня 2024 року № 424-МР, відповідно до рішення виконавчого комітету Сумської міської ради від 27 жовтня 2022 року № 480 «Про затвердження Положення про проведення міського конкурсу «Молодіжна еліта», керуючись пунктом 20 частини 4 статті 42 Закону України «Про місцеве самоврядування в Україні»:</p>
+        <p>1. Відділу молодіжної політики Сумської міської ради (Вербицька В.Л.) організувати та провести міський конкурс «Молодіжна еліта» у червні – серпні 2025 року згідно з положенням, затвердженим рішенням виконавчого комітету Сумської міської ради від 27 жовтня 2022 року № 480 «Про затвердження Положення про проведення міського конкурсу «Молодіжна еліта».</p>
+        <p>2. Затвердити склад комітету з розгляду конкурсних пропозицій та визначення переможців конкурсу (додаток 2).</p>
+        <p>3. Управлінню суспільних комунікацій Сумської міської ради (Дригус Л.О.) розмістити оголошення про проведення міського конкурсу та забезпечити висвітлення його проведення в засобах масової інформації (додаток 1).</p>
+        <p>4. Контроль за виконанням даного розпорядження покласти на заступника міського голови з питань діяльності виконавчих органів ради Полякова С.В.</p>
+    </div>
+</section>
+<section class="section-wrapper">
+    <h2 class="text-bigger mb-10">Мапа громади</h2>
+    <div class="w-full lg:w-3/4 h-[300px] md:h-[500px]">
+        <img class="w-full h-full object-cover" src="/img/map-placeholder.png" alt="">
+    </div>
+</section>
+<section class="section-wrapper">
+    <h2 class="text-bigger mb-10">Населені пункти громади</h2>
+
+    <div class="bg-colored w-full lg:w-3/4 flex flex-col rounded-3xl p-8 mb-8">
+        <h3 class="text-big pb-6 mb-6 border-(--theme-text) border-b-2">Суми</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Кількість підпорядкованих населених пунктів</p>
+                <p class="text-regulat font-light">0</p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Чисельність населення</p>
+                <p class="text-regulat font-light">710052</p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Кількість закладів</p>
+                <p class="text-regulat font-light">103 <a class="underline" href="">дивитися</a></p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">КАТОТГГ</p>
+                <p class="text-regulat font-light">UA80000000000093317</p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-colored w-full lg:w-3/4 flex flex-col rounded-3xl p-8 mb-8">
+        <h3 class="text-big pb-6 mb-6 border-(--theme-text) border-b-2">Суми</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Кількість підпорядкованих населених пунктів</p>
+                <p class="text-regulat font-light">0</p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Чисельність населення</p>
+                <p class="text-regulat font-light">710052</p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">Кількість закладів</p>
+                <p class="text-regulat font-light">103 <a class="underline" href="">дивитися</a></p>
+            </div>
+            <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                <p class="text-custom-18px">КАТОТГГ</p>
+                <p class="text-regulat font-light">UA80000000000093317</p>
+            </div>
+        </div>
+        
+        <div class="accordion-menu w-full mt-8 flex flex-col gap-4">
+            <div class="click-open cursor-pointer flex justify-between items-center gap-2 group pb-4">
+                <h3 class="text-big">Підпорядковані населені пункти</h3>
+                <div class="relative block w-6 h-6 mr-2">
+                    <span
+                        class="absolute top-1/2 left-1/2 w-6 h-0.5 bg-(--theme-text) -translate-x-1/2 -translate-y-1/2"></span>
+                    <span
+                        class="absolute top-1/2 left-1/2 w-6 h-0.5 bg-(--theme-text) rotate-90 -translate-x-1/2 -translate-y-1/2 block group-[.open]:hidden"></span>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 flex flex-col gap-4 mb-8">
+                <h3 class="text-big pb-4 border-black border-b-2">Житейське</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість підпорядкованих населених пунктів</p>
+                        <p class="text-regulat font-light">0</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Чисельність населення</p>
+                        <p class="text-regulat font-light">710052</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість закладів</p>
+                        <p class="text-regulat font-light">103 <a class="underline" href="">дивитися</a></p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">КАТОТГГ</p>
+                        <p class="text-regulat font-light">UA80000000000093317</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 flex flex-col gap-4 mb-8">
+                <h3 class="text-big pb-4 border-black border-b-2">Житейське</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість підпорядкованих населених пунктів</p>
+                        <p class="text-regulat font-light">0</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Чисельність населення</p>
+                        <p class="text-regulat font-light">710052</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість закладів</p>
+                        <p class="text-regulat font-light">103 <a class="underline" href="">дивитися</a></p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">КАТОТГГ</p>
+                        <p class="text-regulat font-light">UA80000000000093317</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 flex flex-col gap-4 mb-8">
+                <h3 class="text-big pb-4 border-black border-b-2">Житейське</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість підпорядкованих населених пунктів</p>
+                        <p class="text-regulat font-light">0</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Чисельність населення</p>
+                        <p class="text-regulat font-light">710052</p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">Кількість закладів</p>
+                        <p class="text-regulat font-light">103 <a class="underline" href="">дивитися</a></p>
+                    </div>
+                    <div class="flex justify-between gap-4 border-dashed border-b-2 border-(--theme-text) pb-4">
+                        <p class="text-custom-18px">КАТОТГГ</p>
+                        <p class="text-regulat font-light">UA80000000000093317</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-wrapper">
+    <h2 class="text-bigger  mb-16">Партнери громади</h2>
+    <div class="flex flex-nowrap gap-6 md:gap-10 overflow-x-auto snap-x scroll-smooth scrollbar-hide">
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-1.png" alt="">
+            <p class="text-regular text-center">Обергаузен<br>Німеччина</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-2.png" alt="">
+            <p class="text-regular text-center">Ашдод<br>Ізраїль</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4  snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-3.png" alt="">
+            <p class="text-regular text-center">Лахті<br>Фінляндія</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-4.png" alt="">
+            <p class="text-regular text-center">Бельфор<br>Франція</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-5.png" alt="">
+            <p class="text-regular text-center">Бірмінгем<br>Англія</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-6.png" alt="">
+            <p class="text-regular text-center">Ічан<br>Китай</p>
+        </div>
+        <div class="w-32 flex flex-col items-center justify-between gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-7.png" alt="">
+            <p class="text-regular text-center">Магдебург<br>Німеччина</p>
+        </div>
+        <div class="w-32 flex flex-col items-center gap-4 snap-start">
+            <img class="w-full h-auto" src="/img/partner-logo-8.png" alt="">
+            <p class="text-regular text-center">Лінц<br>Австрія</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
