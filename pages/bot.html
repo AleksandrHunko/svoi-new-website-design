@@ -1,0 +1,132 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Чат-бот" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <div class="flex flex-col md:flex-row gap-10">
+        <div class="flex-2">
+            <h1 class="text-biggest mb-10">Що це?</h1>
+            <img class="w-1/2 h-auto mx-auto mb-8" src="/img/svoi-img.svg" alt="">
+            <p class="text-regular mb-6">Чат-бот “СВОЇ” у Viber та Telegram — це зручний спосіб комунікації з органами місцевого самоврядування.</p>
+            <p class="text-regular mb-6">Сервіс дозволяє отримати консультації стосовно діяльності місцевої ради, ЦНАПу, проголосувати в місцевих опитуваннях, підписати петицію, підтримати проєкт громадського бюджету чи взяти участь у консультаціях із громадськістю.</p>
+            <p class="text-regular mb-6">А також можна переглянути останні новини чи анонси громад і налаштувати підписку на них. Уся важлива інформація про твою громаду в єдиному місці.</p>
+        </div>
+        <div class="flex-1 flex flex-col gap-6 items-center bg-colored rounded-3xl p-8">
+            <h2 class="text-big">Перейти у чат-бот</h2>
+            <p class="text-regular text-center">Муніципальний бот “СВОЇ”  - це ваша громада у смартфоні.</p>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/qr-sample.png"
+                alt="Слідкувати у Вайбері"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href=""
+                >
+                У Вайбері
+                <img
+                    class="inline-block w-6 h-6 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/viber.svg"
+                    alt="Слідкувати у Вайбері"
+                />
+            </a>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/qr-sample.png"
+                alt="Слідкувати у Телеграмі"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href="">
+                У Телеграмі
+                <img
+                    class="inline-block w-7 h-7 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/telegram.svg"
+                    alt="Слідкувати у Телеграмі"
+                />
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrapper border-b-2 border-[#eaeaea]">
+    <div class="flex gap-16 items-center">
+        <div class="flex-1 hidden md:block ">
+            <img class="w-full h-auto object-contain" src="/img/svoi-phone-img2.svg" alt="">
+        </div>
+        <div class="flex gap-4 items-stretch flex-3 bg-colored rounded-3xl p-8">
+            <svg class="w-40 sm:w-20 lg:w-26 h-auto object-contain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.212 650.21198" height="650.21198" width="107.212">
+                <path style="stroke-width:0.756121;fill:var(--theme-text)" d="M 55,14 V 636.0308 H 51 V 14 Z"/>
+                <path style="fill:var(--theme-bg-svg, var(--theme-bg-80))" d="m 107.212,52.1061 c 0,28.7774 -23.3285,52.1059 -52.1059,52.1059 C 26.3287,104.212 3,80.8835 3,52.1061 3,23.3287 26.3287,0 55.1061,0 83.8835,0 107.212,23.3287 107.212,52.1061 Z"/>
+                <path style="fill:var(--theme-text)" d="m 53.1599,67.5583 h 5.0534 V 35.5535 h -3.7058 c -0.4211,4.2954 -1.9371,5.4745 -7.4959,5.4745 h -1.3475 v 3.9585 h 7.4958 z"/>
+                <path style="fill:var(--theme-bg-svg, var(--theme-bg-80))" d="m 105.212,234.106 c 0,28.778 -23.3285,52.106 -52.1059,52.106 C 24.3287,286.212 1,262.884 1,234.106 1,205.329 24.3287,182 53.1061,182 c 28.7774,0 52.1059,23.329 52.1059,52.106 z"/>
+                <path style="fill:var(--theme-text)" d="m 48.7259,245.01 5.8956,-5.137 c 6.1483,-5.391 8.9277,-9.012 8.9277,-13.476 0,-5.475 -4.2112,-9.265 -10.4437,-9.265 -6.5694,0 -11.1175,3.959 -11.6228,10.444 l 4.7165,0.926 c 0.2526,-4.632 2.7793,-7.074 6.6536,-7.074 3.2847,0 5.5587,2.19 5.5587,5.39 0,2.864 -1.6002,5.643 -5.8956,9.517 l -11.1175,9.939 v 3.284 h 22.9088 v -4.548 z"/>
+                <path style="fill:var(--theme-bg-svg, var(--theme-bg-80))" d="m 107.212,416.106 c 0,28.778 -23.3285,52.106 -52.1059,52.106 C 26.3287,468.212 3,444.884 3,416.106 3,387.329 26.3287,364 55.1061,364 c 28.7774,0 52.1059,23.329 52.1059,52.106 z"/>
+                <path style="fill:var(--theme-text)" d="m 56.2645,411.934 8.5065,-8.675 v -3.706 h -21.14 v 4.549 h 14.7391 l -9.3488,9.601 2.5267,2.695 c 0.9265,-0.589 2.1056,-0.926 3.4532,-0.926 3.4531,0 5.8114,2.358 5.8114,5.895 0,3.875 -2.6952,6.317 -7.0748,6.317 -3.5374,0 -6.1483,-1.684 -7.6643,-4.969 l -3.8743,2.274 c 1.9372,4.464 6.2325,6.99 11.7913,6.99 6.8221,0 11.7912,-4.548 11.7912,-10.612 0,-5.558 -3.9585,-9.433 -9.5172,-9.433 z"/>
+                <path style="fill:var(--theme-bg-svg, var(--theme-bg-80))" d="m 104.212,598.106 c 0,28.778 -23.3285,52.106 -52.1059,52.106 C 23.3287,650.212 0,626.884 0,598.106 0,569.329 23.3287,546 52.1061,546 c 28.7774,0 52.1059,23.329 52.1059,52.106 z"/>
+                <path style="fill:var(--theme-text)" d="m 65.8114,601.346 h -5.1376 v -19.792 h -6.0641 l -14.5706,20.045 v 4.043 h 15.7497 v 7.917 h 4.885 v -7.917 h 5.1376 z m -20.5505,0 10.5279,-14.486 v 14.486 z"/>
+            </svg>
+            <div class="flex flex-col justify-between">
+                <p class="text-regular sm:pt-1 lg:pt-6">Скануйте QR-коди вище смартфоном та підключайтеся до чат-боту “Свої”</p>
+                <p class="text-regular mt-4 sm:mt-1">Дізнайтеся про потрібну послугу чи інструмент е-демократії, користуйтеся електронними сервісами</p>
+                <p class="text-regular mt-4 sm:mt-1">Отримуйте новини та актуальні повідомлення</p>
+                <p class="text-regular -mb-2 sm:mb-0 lg:pb-4">Оцінюйте роботу муніципальних закладів та відправляйте звернення до влади у звичному мессенджері</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-wrapper">
+    <div class="flex flex-col md:flex-row gap-10">
+        <div class="flex-2">
+            <h2 class="text-bigger my-10">Завантажте стікерпак</h2>
+            <img class="w-full h-auto mx-auto" src="/img/Stikepack.svg" alt="">
+        </div>
+        <div class="flex-1 flex flex-col gap-6 items-center bg-colored rounded-3xl p-8">
+            <h3 class="text-big">Отримай стікери</h3>
+            <p class="text-regular text-center">Використовуйте 25 стильних стікерів у viber та telegram для спілкування с друзями та колегами.</p>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/stickers_viber.png"
+                alt="Стікерпак у Вайбері"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href="https://stickers.viber.com/pages/custom-sticker-packs/11eba683ddfb86e2a21dad6be16bd67bf38fb7ebaa67dea5"
+                target="_blank"
+                >
+                У Вайбері
+                <img
+                    class="inline-block w-6 h-6 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/viber.svg"
+                    alt="Стікерпак у Вайбері"
+                />
+            </a>
+            <img
+                class="w-1/2 h-auto"
+                src="/img/stickers_telegram.png"
+                alt="Стікерпак у Телеграмі"
+            />
+            <a
+                class="block button-transparent w-fit text-center"
+                href="https://t.me/addstickers/svoi_chatbot"
+                target="_blank"
+                >
+                У Телеграмі
+                <img
+                    class="inline-block w-7 h-7 ml-2 -mt-1 pointer-events-none"
+                    src="/img/material-design/telegram.svg"
+                    alt="Стікерпак у Телеграмі"
+                />
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
