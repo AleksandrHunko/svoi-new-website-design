@@ -1,0 +1,30 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Містобудування" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="flex flex-col md:flex-row gap-4 justify-between">
+        <h1 class="text-biggest mb-10">Містобудування</h1>
+        <div class="bg-colored p-8 rounded-3xl">
+            <h2 class="text-medium mb-8">Управління <br> архітектури на зв’язку</h2>
+            <a class="block button-transparent w-fit md:ml-auto" href="">Перейти</a>
+        </div>
+    </div>
+</section>
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-10">
+        <h2 class="text-biggest">Новини містобудування</h2>
+        <a class="button-transparent text-custom-18px" href="#">Всі новини</a>
+    </div>
+    {% include "templates/components/news.njk" %}
+</section>
+
+{% endblock %}
