@@ -1,0 +1,82 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <h1 class="text-biggest">Громадський бюджет</h1>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Громадський бюджет" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-10">
+        <h2 id="edem-heading" class="text-biggest">Активні бюджети</h2>
+        <a class="edem-all-link button-transparent text-custom-18px" href="" target="_blank">Всі бюджети</a>
+    </div>
+    <div id="edem-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 shrink-0">
+        <h3 class="text-big">Завантажуємо бюджети...</h3>
+    </div>
+    <div class="flex justify-center w-full mt-10">
+        <a class="edem-all-link button-transparent text-custom-18px" href="" target="_blank">Всі бюджети</a>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <div class="flex flex-col md:flex-row gap-10 items-start">
+        <div class="flex-1 bg-colored rounded-3xl p-8 md:sticky md:top-8">
+            <h2 class="text-big mb-8">Як це працює?</h2>
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center shrink-0">
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">1</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">2</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">3</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">4</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">5</span>
+                </div>
+                <div class="flex flex-col justify-between gap-8">
+                    <p class="text-regular font-light h-16 flex items-center">Реєструйтесь у сервісі за допомогою BankID чи е-підпису</p>
+                    <p class="text-regular font-light h-16 flex items-center">Створюйте ідею</p>
+                    <p class="text-regular font-light h-16 flex items-center">Подавайте проєкт</p>
+                    <p class="text-regular font-light h-16 flex items-center">Збирайте голоси</p>
+                    <p class="text-regular font-light h-16 flex items-center">Отримуйте результат</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-biggest mb-8">Що це?</h2>
+            <p class="text-regular font-light mb-6">Частина бюджету громади виділяється на проєкти, ініційовані її мешканцями. Громадський бюджет — це відкрита платформа, завдяки якій кожен може запропонувати до реалізації власний проєкт чи проголосувати за інший. Цей інструмент залучає мешканців до активної участі в бюджетному процесі.</p>
+            <p class="text-regular font-light mb-6">Громадяни висловлюють ідеї та особисто вирішують, на що спрямувати частину коштів місцевого бюджету. Забудьте про черги та папери — допомагайте владі зі смартфона чи комп’ютера.</p>
+            <p class="text-regular font-light mb-6">Дій на користь громади — впливай на майбутнє!</p>
+            <div class="flex flex-col gap-6 items-center bg-colored rounded-3xl p-8 mt-10">
+                <img class="w-1/2 h-auto" src="/img/edem-logo.svg" alt="E-DEM">
+                <h3 class="text-big text-center">Голосуйте за проєкти громадського бюджету!</h3>
+                <a class="edem-all-link button-black w-fit text-center" href="" target="_blank">Перейти</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% set koatuu = '6810600000' %}
+<script type="module">
+    import { initEdemBudgets } from '/js/e-dem-api-budget.js';
+    initEdemBudgets('{{ koatuu }}');
+</script>
+
+{% endblock %}

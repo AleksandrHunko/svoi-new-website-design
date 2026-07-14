@@ -1,0 +1,76 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block header %}
+
+<header class="bg-colored">
+    <div class="px-4 md:px-8 py-8 max-w-[1440px] mx-auto">
+        <h1 class="text-biggest">Консультації з громадськістю</h1>
+    </div>
+</header>
+
+{% endblock %}
+
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Консультації з громадськістю" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <div class="flex justify-between items-end w-full mb-10">
+        <h2 class="text-biggest">Активні консультації</h2>
+        <a class="edem-all-link button-transparent text-custom-18px" href="" target="_blank">Всі консультації</a>
+    </div>
+    <div id="edem-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 shrink-0">
+        <h3 class="text-big">Завантажуємо консультації...</h3>
+    </div>
+    <div class="flex justify-center w-full mt-10">
+        <a class="edem-all-link button-transparent text-custom-18px" href="" target="_blank">Всі консультації</a>
+    </div>
+</section>
+
+<section class="section-wrapper">
+    <div class="flex flex-col md:flex-row gap-10 items-start">
+        <div class="flex-1 bg-colored rounded-3xl p-8 md:sticky md:top-8">
+            <h2 class="text-big mb-8">Як це працює?</h2>
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center shrink-0">
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">1</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">2</span>
+                    <span class="w-px flex-1 bg-black"></span>
+                    <span class="w-16 h-16 rounded-full bg-colored-80 flex items-center justify-center text-medium shrink-0">3</span>
+                </div>
+                <div class="flex flex-col justify-between gap-8">
+                    <p class="text-regular font-light h-16 flex items-center">Реєструйтесь у сервісі за допомогою BankID чи е-підпису</p>
+                    <p class="text-regular font-light h-16 flex items-center">Беріть участь у консультаціях</p>
+                    <p class="text-regular font-light h-16 flex items-center">Очікуйте на відповіді та ухвалені рішення</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-biggest mb-8">Що це?</h2>
+            <p class="text-regular font-light mb-6">Зручний електронний сервіс для комунікації з органами влади та впливу на рішення, ініціативи та місцеві політики громади</p>
+            <p class="text-regular font-light mb-6">Це інструмент для опитування громадян, обговорення варіантів рішень на важливі питання життя громади. Кожен житель може озвучити свої пропозиції.</p>
+            <p class="text-regular font-light mb-6">Громадяни можуть власноруч співпрацювати з владою громади, брати участь в опитуваннях та обговорювати рішення. Консультуйте владу — впливайте на майбутнє!</p>
+            <div class="flex flex-col gap-6 items-center bg-colored rounded-3xl p-8 mt-10">
+                <img class="w-1/2 h-auto" src="/img/edem-logo.svg" alt="E-DEM">
+                <h3 class="text-big text-center">Беріть участь у консультаціях зараз!</h3>
+                <a class="edem-all-link button-black w-fit text-center" href="" target="_blank">Перейти</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% set koatuu = '2310100000' %}
+<script type="module">
+    import { initEdemConsultations } from '/js/e-dem-api-consult.js';
+    initEdemConsultations('{{ koatuu }}');
+</script>
+
+{% endblock %}
