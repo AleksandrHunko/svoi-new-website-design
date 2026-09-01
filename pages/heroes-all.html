@@ -1,0 +1,42 @@
+{% extends "templates/layouts/master.njk" %}
+
+{% block breadcrumbs %}
+{% set breadcrumbs = [
+{ title: "Головна", url: "/pages/index.html" },
+{ title: "Герої не вмирають" }
+] %}
+{% include "templates/partials/breadcrumbs.njk" %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section-wrapper">
+    <h1 class="text-biggest mb-10">Герої не вмирають</h1>
+    <form class="mb-8" action="">
+        <div class="flex flex-wrap gap-4 justify-between items-start w-full">
+            <div class="relative w-full md:w-lg">
+                <input class="px-4 py-2 w-full bg-white border-2 rounded-3xl text-base" name="search" type="text"
+                    placeholder="Пошук">
+                <img class="absolute bottom-3 right-3 w-5 h-5" src="/img/material-design/search.svg" alt="">
+            </div>
+            <button class="w-full md:w-fit button-black text-regular cursor-pointer px-10"
+                    type="submit">Шукати</button>
+        </div>
+    </form>
+
+    {% set persons = [
+        { name: "Коваленко Андрій Миколайович", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Слюсар комунального підприємства. Загинув під Ізюмом, виносячи поранених побратимів з-під обстрілу." },
+        { name: "Гриценко Ольга Василівна", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Медсестра районної лікарні, бойова медикиня. Загинула під час евакуації поранених біля Кліщіївки." },
+        { name: "Мельник Олександр Петрович", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Учитель фізкультури, тренер шкільної футбольної команди. Загинув на Луганщині у травні 2022 року." },
+        { name: "Бондаренко Віталій Сергійович", url: "/pages/hero-one.html", description: "Механік-водій. Загинув поблизу Авдіївки, прикриваючи відхід свого підрозділу." },
+        { name: "Ткаченко Роман Васильович", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Водій швидкої допомоги, доброволець тероборони. Загинув під час оборони Маріуполя." },
+        { name: "Кравчук Дмитро Олегович", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Студент-агроном, наймолодший із загиблих героїв громади. Загинув у боях за Роботине." },
+        { name: "Лисенко Ігор Анатолійович", url: "/pages/hero-one.html", description: "Командир роти, учасник бойових дій із 2015 року. Загинув на Куп'янському напрямку." },
+        { name: "Павленко Максим Юрійович", url: "/pages/hero-one.html", image: "/img/photo-1.jpg", description: "Електрик, гітарист гурту «Промінь». Загинув під Лиманом, підірвавшись на міні під час розвідки." }
+    ] %}
+    {% include "templates/components/photo-grid.njk" %}
+
+    {% include "templates/components/pagination.njk" %}
+</section>
+
+{% endblock %}
